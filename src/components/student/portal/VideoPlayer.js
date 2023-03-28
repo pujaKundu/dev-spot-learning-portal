@@ -18,7 +18,7 @@ const VideoPlayer = ({ url, title, isLoading, isError }) => {
       allowFullScreen
     ></iframe>
   }
-  console.log(url);
+  
   return (
     <>{ content}</>
   );

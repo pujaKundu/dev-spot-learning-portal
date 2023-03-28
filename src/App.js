@@ -6,8 +6,9 @@ import "./App.css";
 import Portal from "./components/student/portal/Portal";
 import StudentRegistration from "./components/student/StudentRegistration";
 import StudentLogin from "./components/student/StudentLogin";
-import CoursePlayer from './components/student/portal/CoursePlayer'
+import CoursePlayer from "./components/student/portal/CoursePlayer";
 import VideoToPlay from "./components/student/portal/VideoToPlay";
+import QuizModal from "./components/student/portal/quiz/QuizModal";
 
 function App() {
   const authChecked = useAuthCheck();
@@ -39,6 +40,14 @@ function App() {
           element={
             <PrivateRoute>
               <Portal />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/quiz/:videoId"
+          element={
+            <PrivateRoute>
+              <QuizModal />
             </PrivateRoute>
           }
         />

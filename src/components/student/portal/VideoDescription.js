@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import AssignmentModal from "./assignment/AssignmentModal";
 import QuizModal from "./quiz/QuizModal";
 
@@ -32,12 +33,12 @@ const VideoDescription = ({ video, isLoading, isError }) => {
           >
             এসাইনমেন্ট
           </button>
-          <button
+          <Link to={`/quiz/${video?.id}`}
             class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
-            onClick={controlModal}
+            
           >
             কুইজে অংশগ্রহণ করুন
-          </button>
+          </Link>
         </div>
         <p class="mt-4 text-sm text-slate-400 leading-6">
           {video?.description}
@@ -49,7 +50,7 @@ const VideoDescription = ({ video, isLoading, isError }) => {
     <>
       {content}
       <AssignmentModal open={opened} control={controlModal} />
-      <QuizModal open={opened} control={controlModal} videoId={video?.id} />
+      
     </>
   );
 };
