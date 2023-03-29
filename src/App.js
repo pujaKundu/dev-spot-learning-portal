@@ -9,6 +9,7 @@ import StudentLogin from "./components/student/StudentLogin";
 import CoursePlayer from "./components/student/portal/CoursePlayer";
 import VideoToPlay from "./components/student/portal/VideoToPlay";
 import QuizModal from "./components/student/portal/quiz/QuizModal";
+import AdminLogin from "./components/admin/AdminLogin";
 
 function App() {
   const authChecked = useAuthCheck();
@@ -36,13 +37,14 @@ function App() {
           }
         />
         <Route
-          path="/portal"
+          path="/portal/:videoId"
           element={
             <PrivateRoute>
               <Portal />
             </PrivateRoute>
           }
         />
+
         <Route
           path="/quiz/:videoId"
           element={
@@ -51,14 +53,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        {/* <Route
-          path="/coursevideo/:id"
+        <Route
+          path="/admin"
           element={
             <PrivateRoute>
-              <VideoToPlay/>
+              <AdminLogin />
             </PrivateRoute>
           }
-        /> */}
+        />
       </Routes>
     </Router>
   );

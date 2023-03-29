@@ -6,7 +6,7 @@ const SingleVideo = ({ video, setId }) => {
 const navigate=useNavigate()
   const handleId = (id) => {
     setId(id);
-    // navigate(`/coursevideo/${id}`);
+    navigate(`/portal/${id}`);
   };
 
   return (

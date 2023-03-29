@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { apiSlice } from "../features/api/apiSlice";
+import assignmentsReducer from "../features/assignments/assignmentsSlice";
 import authSliceReducer from "../features/auth/authSlice";
 import quizReducer from "../features/quiz/quizSlice";
 import videosReducer from "../features/videos/videosSlice";
@@ -10,6 +11,7 @@ export const store = configureStore({
     auth: authSliceReducer,
     videos: videosReducer,
     quizzes: quizReducer,
+    assignments:assignmentsReducer
   },
   devTools: process.env.NODE_ENV !== "production",
   middleware: (getDefaultMiddlewares) =>

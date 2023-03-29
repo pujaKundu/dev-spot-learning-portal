@@ -1,4 +1,4 @@
-import React from "react";
+
 import Navbar from "../../shared/Navbar";
 import CoursePlayer from './CoursePlayer'
 
