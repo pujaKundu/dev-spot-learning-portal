@@ -1,11 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../features/auth/authSlice";
-import logo from '../../assets/images/lws-logo-dark.svg'
 
-const Navbar = ({ user }) => {
+const AdminNavbar = ({ user }) => {
   const dispatch = useDispatch();
-  
+
   const logout = () => {
     dispatch(userLoggedOut());
     localStorage.clear();
@@ -14,7 +13,7 @@ const Navbar = ({ user }) => {
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img className={logo} alt='logo' />
+        <img className="h-10" src="../assets/image/learningportal.svg" />
         <div className="flex items-center gap-3">
           <a href="./Leaderboard.html">Leaderboard</a>
           <h2 className="font-bold">{user?.name}</h2>
@@ -44,4 +43,4 @@ const Navbar = ({ user }) => {
   );
 };
 
-export default Navbar;
+export default AdminNavbar;
