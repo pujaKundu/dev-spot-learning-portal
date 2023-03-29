@@ -6,11 +6,15 @@ import "./App.css";
 import Portal from "./components/student/portal/Portal";
 import StudentRegistration from "./components/student/StudentRegistration";
 import StudentLogin from "./components/student/StudentLogin";
-import CoursePlayer from "./components/student/portal/CoursePlayer";
-import VideoToPlay from "./components/student/portal/VideoToPlay";
 import QuizModal from "./components/student/portal/quiz/QuizModal";
 import AdminLogin from "./components/admin/AdminLogin";
-import Dashboard from "./components/admin/dashboard/Dashboard";
+import {
+  Dashboard,
+  Assignment,
+  AssignmentMark,
+  Videos,
+  Quiz,AddVideo
+} from "./components/admin/index";
 
 function App() {
   const authChecked = useAuthCheck();
@@ -54,6 +58,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/* admin routes start */}
         <Route
           path="/admin"
           element={
@@ -67,6 +72,46 @@ function App() {
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/videos"
+          element={
+            <PrivateRoute>
+              <Videos />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/videos/add"
+          element={
+            <PrivateRoute>
+              <AddVideo />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/assignment"
+          element={
+            <PrivateRoute>
+              <Assignment />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/quiz"
+          element={
+            <PrivateRoute>
+              <Quiz />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/assignmentMark"
+          element={
+            <PrivateRoute>
+              <AssignmentMark />
             </PrivateRoute>
           }
         />

@@ -11,7 +11,7 @@ const VideoList = ({ setId }) => {
     content = <p className="error">There was an error occured</p>;
 
   if (!isLoading && !isError && videos?.length === 0) {
-    content = <p>No project found!</p>;
+    content = <p>No video found!</p>;
   }
 
   if (!isLoading && !isError && videos?.length > 0) {

@@ -1,8 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { userLoggedOut } from "../../features/auth/authSlice";
+import { userLoggedOut } from '../../../features/auth/authSlice'
+import logo  from "../../../assets/images/lws-logo-dark.svg";
 
-const AdminNavbar = ({ user }) => {
+const AdminNavbar = () => {
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -11,15 +12,14 @@ const AdminNavbar = ({ user }) => {
   };
 
   return (
-    <nav className="shadow-md">
-      <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img className="h-10" src="../assets/image/learningportal.svg" />
-        <div className="flex items-center gap-3">
-          <a href="./Leaderboard.html">Leaderboard</a>
-          <h2 className="font-bold">{user?.name}</h2>
+    <nav class="shadow-md">
+      <div class="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
+        <img class={logo} alt="logo" />
+        <div class="flex items-center gap-3">
+          <h2 class="font-bold">Admin</h2>
           <button
-            className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan "
             onClick={logout}
+            class="flex gap-2 items-center px-4 py-1 rounded-full text-sm transition-all bg-red-600 hover:bg-red-700 font-medium"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ const AdminNavbar = ({ user }) => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-6 h-6"
+              class="w-6 h-6"
             >
               <path
                 stroke-linecap="round"
