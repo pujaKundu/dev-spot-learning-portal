@@ -10,6 +10,7 @@ import CoursePlayer from "./components/student/portal/CoursePlayer";
 import VideoToPlay from "./components/student/portal/VideoToPlay";
 import QuizModal from "./components/student/portal/quiz/QuizModal";
 import AdminLogin from "./components/admin/AdminLogin";
+import Dashboard from "./components/admin/dashboard/Dashboard";
 
 function App() {
   const authChecked = useAuthCheck();
@@ -56,8 +57,16 @@ function App() {
         <Route
           path="/admin"
           element={
-            <PrivateRoute>
+            <PublicRoute>
               <AdminLogin />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
             </PrivateRoute>
           }
         />

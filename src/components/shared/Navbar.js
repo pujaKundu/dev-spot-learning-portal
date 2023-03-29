@@ -4,20 +4,20 @@ import { userLoggedOut } from "../../features/auth/authSlice";
 
 const Navbar = ({ user }) => {
   const dispatch = useDispatch();
-
+  console.log(user);
   const logout = () => {
     dispatch(userLoggedOut());
     localStorage.clear();
   };
 
-  const { name } = user;
+  // const { name } = user;
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
         <img className="h-10" src="../assets/image/learningportal.svg" />
         <div className="flex items-center gap-3">
           <a href="./Leaderboard.html">Leaderboard</a>
-          <h2 className="font-bold">{name}</h2>
+          <h2 className="font-bold">{user?.name}</h2>
           <button
             className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan "
             onClick={logout}

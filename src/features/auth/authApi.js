@@ -62,7 +62,39 @@ export const authApi = apiSlice.injectEndpoints({
                 }
             },
         }),
+        adminLogin: builder.mutation({
+            query: (data) => ({
+                url: "/login",
+                method: "POST",
+                body: data,
+            }),
+
+            async onQueryStarted(arg, { queryFulfilled, dispatch }) {
+                try {
+                    const result = await queryFulfilled;
+                    console.log(result)
+                    if (result.data.user.role === "admin") {
+                      localStorage.setItem(
+                        "auth",
+                        JSON.stringify({
+                          accessToken: result.data.accessToken,
+                          user: result.data.user,
+                        })
+                      );
+
+                      dispatch(
+                        userLoggedIn({
+                          accessToken: result.data.accessToken,
+                          user: result.data.user,
+                        })
+                      );
+                    }
+                } catch (err) {
+                    // do nothing
+                }
+            },
+        }),
     }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApi;
+export const { useLoginMutation, useRegisterMutation,useAdminLoginMutation } = authApi;

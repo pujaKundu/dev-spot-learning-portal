@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useGetAssignmentMarkQuery, useGetAssignmentsQuery } from "../../../features/assignments/assignmentsApi";
+import {
+  useGetAssignmentMarkQuery,
+  useGetAssignmentsQuery,
+} from "../../../features/assignments/assignmentsApi";
 import AssignmentModal from "./assignment/AssignmentModal";
 
 const VideoDescription = ({ video, user, id }) => {
@@ -12,11 +15,11 @@ const VideoDescription = ({ video, user, id }) => {
     isError,
   } = useGetAssignmentsQuery(video?.id);
 
-  const { data: assignmentMark } = useGetAssignmentMarkQuery(video?.id)
+  const { data: assignmentMark } = useGetAssignmentMarkQuery(video?.id);
 
   const assignmentIndex = assignment ? assignment[0] : null;
   const { id: assignment_id } = assignmentIndex || [];
-  
+
   let matchAssignment = false;
   assignmentMark?.forEach((mark) => {
     assignment?.forEach((assign) => {
@@ -27,9 +30,7 @@ const VideoDescription = ({ video, user, id }) => {
   });
 
   const assignmentSubmitted = JSON.parse(
-    localStorage.getItem(
-      `assignment_${assignment_id}_submitted_by_${user?.id}`
-    )
+    localStorage.getItem(`assignment_${assignment_id}_submitted_by_${user?.id}`)
   );
   //for modal
   const [opened, setOpened] = useState(false);
@@ -62,20 +63,21 @@ const VideoDescription = ({ video, user, id }) => {
               এসাইনমেন্ট নেই
             </p>
           ) : (
-            
+            !isAssignmentSubmitted && (
               <button
                 class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
                 onClick={controlModal}
               >
                 এসাইনমেন্ট
               </button>
-            
+            )
           )}
-          {isAssignmentSubmitted || matchAssignment &&(
-            <p className="px-3 font-bold py-1 border border-red text-green-500 rounded-full text-sm hover:text-primary">
-              এসাইনমেন্ট জমা হয়েছে
-            </p>
-          )}
+          {isAssignmentSubmitted ||
+            matchAssignment &&(
+              <p className="px-3 font-bold py-1 border border-red text-green-500 rounded-full text-sm hover:text-primary">
+                এসাইনমেন্ট জমা হয়েছে
+              </p>
+            )}
           <Link
             to={`/quiz/${video?.id}`}
             class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
