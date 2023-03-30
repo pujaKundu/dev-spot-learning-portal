@@ -5,11 +5,11 @@ const AddVideo = () => {
   const [addVideo, { isSuccess }] = useAddVideoMutation();
 
   //states for input values
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [url, setUrl] = useState();
-  const [views, setViews] = useState();
-  const [duration, setDuration] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [url, setUrl] = useState("");
+  const [views, setViews] = useState("");
+  const [duration, setDuration] = useState("");
 
   //get createdAt time
   const currDate = new Date();
@@ -33,7 +33,7 @@ const AddVideo = () => {
     setUrl("");
     setViews("");
     setDuration("");
-    alert('Video Added Successfully')
+    alert("Video Added Successfully");
   };
 
   return (
@@ -118,7 +118,7 @@ const AddVideo = () => {
             class="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
             type="submit"
           >
-            Submit
+            Save
           </button>
         </div>
         {/* {isSuccess && (

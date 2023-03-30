@@ -16,10 +16,10 @@ export const videosApi = apiSlice.injectEndpoints({
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
-          const task = await queryFulfilled;
+          const video = await queryFulfilled;
           dispatch(
             apiSlice.util.updateQueryData("getVideos", undefined, (draft) => {
-              draft.push(task.data);
+              draft.push(video.data);
             })
           );
         } catch (err) {}
@@ -33,12 +33,12 @@ export const videosApi = apiSlice.injectEndpoints({
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
-          const task = await queryFulfilled;
+          const video = await queryFulfilled;
           dispatch(
-            apiSlice.util.updateQueryData("getvideos", undefined, (draft) => {
-              const index = draft.findIndex((t) => t?.id == task?.data?.id);
+            apiSlice.util.updateQueryData("getVideos", undefined, (draft) => {
+              const index = draft.findIndex((t) => t?.id == video?.data?.id);
               if (index != -1) {
-                draft[index] = task.data;
+                draft[index] = video.data;
               }
             })
           );

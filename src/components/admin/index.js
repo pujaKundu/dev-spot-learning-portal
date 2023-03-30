@@ -6,3 +6,4 @@ export { default as Videos } from "./videos/Videos";
 export { default as AdminNavbar } from "./dashboard/AdminNavbar";
 export { default as Video } from "./videos/Video";
 export { default as AddVideo } from "./videos/AddVideo";
+export { default as EditVideo } from "./videos/EditVideo";

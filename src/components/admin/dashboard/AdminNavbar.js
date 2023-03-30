@@ -1,7 +1,7 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { userLoggedOut } from '../../../features/auth/authSlice'
-import logo  from "../../../assets/images/lws-logo-dark.svg";
+import { userLoggedOut } from "../../../features/auth/authSlice";
+import logo from "../../../assets/images/lws-logo-dark.svg";
 
 const AdminNavbar = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,9 @@ const AdminNavbar = () => {
         <img class={logo} alt="logo" />
         <div class="flex items-center gap-3">
           <h2 class="font-bold">Admin</h2>
+          <Link to="/admin/dashboard" class="font-bold">
+            Dashboard
+          </Link>
           <button
             onClick={logout}
             class="flex gap-2 items-center px-4 py-1 rounded-full text-sm transition-all bg-red-600 hover:bg-red-700 font-medium"

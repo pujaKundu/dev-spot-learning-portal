@@ -13,7 +13,7 @@ import {
   Assignment,
   AssignmentMark,
   Videos,
-  Quiz,AddVideo
+  Quiz,AddVideo, EditVideo
 } from "./components/admin/index";
 
 function App() {
@@ -88,6 +88,14 @@ function App() {
           element={
             <PrivateRoute>
               <AddVideo />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/videos/edit/:id"
+          element={
+            <PrivateRoute>
+              <EditVideo />
             </PrivateRoute>
           }
         />
