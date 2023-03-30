@@ -2,13 +2,16 @@ import { apiSlice } from "../api/apiSlice";
 
 export const assignmentsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    getAllAssignments: builder.query({
+      query: () => `/assignments`,
+    }),
     getAssignments: builder.query({
       query: (videoId) => `/assignments?video_id=${videoId}`,
     }),
     getAssignmentMark: builder.query({
       query: (videoId) => `/assignmentMark?video_id=${videoId}`,
     }),
-   
+
     addAssignment: builder.mutation({
       query: (data) => ({
         url: "/assignmentMark",
@@ -33,5 +36,9 @@ export const assignmentsApi = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetAssignmentsQuery,useGetAssignmentMarkQuery, useAddAssignmentMutation } =
-  assignmentsApi;
+export const {
+  useGetAllAssignmentsQuery,
+  useGetAssignmentsQuery,
+  useGetAssignmentMarkQuery,
+  useAddAssignmentMutation,
+} = assignmentsApi;

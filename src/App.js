@@ -10,10 +10,14 @@ import QuizModal from "./components/student/portal/quiz/QuizModal";
 import AdminLogin from "./components/admin/AdminLogin";
 import {
   Dashboard,
-  Assignment,
+  Assignments,
   AssignmentMark,
   Videos,
-  Quiz,AddVideo, EditVideo
+  Quiz,
+  AddVideo,
+  EditVideo,
+  AddAssignment,
+  EditAssignment,
 } from "./components/admin/index";
 
 function App() {
@@ -32,7 +36,6 @@ function App() {
             </PublicRoute>
           }
         />
-
         <Route
           path="/register"
           element={
@@ -49,7 +52,6 @@ function App() {
             </PrivateRoute>
           }
         />
-
         <Route
           path="/quiz/:videoId"
           element={
@@ -75,6 +77,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/* admin routes for videos */}
         <Route
           path="/admin/videos"
           element={
@@ -99,11 +102,29 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/* admin routes for assignments */}
         <Route
           path="/admin/assignment"
           element={
             <PrivateRoute>
-              <Assignment />
+              <Assignments />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/admin/assignment/add"
+          element={
+            <PrivateRoute>
+              <AddAssignment />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/assignment/edit/:id"
+          element={
+            <PrivateRoute>
+              <EditAssignment />
             </PrivateRoute>
           }
         />
