@@ -1,7 +1,13 @@
 import React from "react";
+import { useDeleteAssignmentMutation } from "../../../features/assignments/assignmentsApi";
 
 const Assignment = ({ assignment }) => {
-  const { title, video_title, totalMark } = assignment || {};
+  const { id,title, video_title, totalMark } = assignment || {};
+  const [deleteAssignment] = useDeleteAssignmentMutation();
+  const handleDelete = (e) => {
+    e.preventDefault();
+    deleteAssignment(id);
+  };
   return (
     <tr>
       <td className="table-td">{title}</td>
@@ -14,6 +20,7 @@ const Assignment = ({ assignment }) => {
           stroke-width="1.5"
           stroke="currentColor"
           className="w-6 h-6 hover:text-red-500 cursor-pointer transition-all"
+          onClick={handleDelete}
         >
           <path
             stroke-linecap="round"
