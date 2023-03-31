@@ -33,6 +33,27 @@ export const assignmentsApi = apiSlice.injectEndpoints({
         } catch (err) {}
       },
     }),
+    addVideoAssignment: builder.mutation({
+      query: (data) => ({
+        url: "/assignments",
+        method: "POST",
+        body: data,
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const assignment = await queryFulfilled;
+          dispatch(
+            apiSlice.util.updateQueryData(
+              "getAssignments",
+              undefined,
+              (draft) => {
+                draft.push(assignment?.data);
+              }
+            )
+          );
+        } catch (err) {}
+      },
+    }),
   }),
 });
 
@@ -41,4 +62,5 @@ export const {
   useGetAssignmentsQuery,
   useGetAssignmentMarkQuery,
   useAddAssignmentMutation,
+  useAddVideoAssignmentMutation,
 } = assignmentsApi;
