@@ -2,6 +2,9 @@ import { apiSlice } from "../api/apiSlice";
 
 export const quizApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    getAllQuizzes: builder.query({
+      query: () => `/quizzes`,
+    }),
     getQuizzes: builder.query({
       query: (videoId) => `/quizzes?video_id=${videoId}`,
     }),
@@ -25,8 +28,64 @@ export const quizApi = apiSlice.injectEndpoints({
         } catch (err) {}
       },
     }),
+    editQuiz: builder.mutation({
+      query: ({ quizId, data }) => ({
+        url: `/quizzes/${quizId}`,
+        method: "PATCH",
+        body: data,
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const quiz = await queryFulfilled;
+          dispatch(
+            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
+              const index = draft.findIndex((t) => t?.id == quiz?.data?.id);
+              if (index != -1) {
+                draft[index] = quiz.data;
+              }
+            })
+          );
+        } catch (error) {}
+      },
+    }),
+    deleteQuiz: builder.mutation({
+      query: (id) => ({
+        url: `/quizzes/${id}`,
+        method: "DELETE",
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        const quizId = arg;
+        try {
+          dispatch(
+            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
+              const index = draft.findIndex((t) => t?.id === quizId);
+              if (index !== -1) {
+                draft.splice(index, 1);
+              }
+            })
+          );
+        } catch (error) {}
+      },
+      onQueryReturned(arg, { error, dispatch }) {
+        if (error) {
+          const quizIdId = arg;
+          dispatch(
+            apiSlice.util.updateQueryData("getVideos", undefined, (draft) => {
+              const quizId = { id: quizIdId };
+              draft.push(quizId);
+            })
+          );
+        }
+      },
+    }),
   }),
 });
 
-export const { useGetQuizzesQuery, useGetQuizQuery, useAddQuizMutation } =
-  quizApi;
+export const {
+  useGetAllQuizzesQuery,
+  useGetQuizzesQuery,
+  useGetQuizQuery,
+  useAddQuizMutation,
+  useEditQuizMutation,
+  useDeleteQuizMutation,
+} = quizApi;

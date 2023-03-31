@@ -18,6 +18,8 @@ import {
   EditVideo,
   AddAssignment,
   EditAssignment,
+  AddQuiz,
+  EditQuiz,
 } from "./components/admin/index";
 
 function App() {
@@ -133,6 +135,22 @@ function App() {
           element={
             <PrivateRoute>
               <Quiz />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/quiz/add"
+          element={
+            <PrivateRoute>
+              <AddQuiz />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/quiz/edit/:id"
+          element={
+            <PrivateRoute>
+              <EditQuiz />
             </PrivateRoute>
           }
         />
