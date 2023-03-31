@@ -29,15 +29,6 @@ const EditVideo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      title: title,
-      description: description,
-      url: url,
-      views: views,
-      duration: duration,
-      createdAt: time,
-    };
-
     //Edit video
     editVideo({
       videoId: video?.id,
@@ -57,11 +48,9 @@ const EditVideo = () => {
     setViews("");
     setDuration("");
     // success alert and navigate to videos
+
     alert("Video Edited Successfully");
     navigate("/admin/videos");
-    // if (isSuccess) {
-    //   alert("Video Edited Successfully");
-    // }
   };
 
   return (
