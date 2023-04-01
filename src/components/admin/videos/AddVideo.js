@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAddVideoMutation } from "../../../features/videos/videosApi";
 
 const AddVideo = () => {
+  const navigate=useNavigate()
   const [addVideo, { isSuccess }] = useAddVideoMutation();
 
   //states for input values
@@ -34,6 +36,7 @@ const AddVideo = () => {
     setViews("");
     setDuration("");
     alert("Video Added Successfully");
+    navigate('/admin/videos')
   };
 
   return (

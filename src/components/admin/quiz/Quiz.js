@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useGetAllQuizzesQuery } from "../../../features/quiz/quizApi";
 import { AdminNavbar, SingleQuiz } from "../index";
 
@@ -22,9 +23,9 @@ const Quiz = () => {
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-full px-5 lg:px-20">
           <div className="px-3 py-20 bg-opacity-10">
-            <div className="w-full flex">
+            <Link to='/admin/quiz/add' className="w-full flex">
               <button className="btn ml-auto">Add Quiz</button>
-            </div>
+            </Link>
             <div className="overflow-x-auto mt-4">
               <table className="divide-y-1 text-base divide-gray-600 w-full">
                 <thead>
