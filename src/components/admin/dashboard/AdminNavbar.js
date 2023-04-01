@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
-import logo from "../../../assets/images/lws-logo-dark.svg";
+import logo from '../../../image/learningportal.svg'
 
 const AdminNavbar = () => {
   const dispatch = useDispatch();
