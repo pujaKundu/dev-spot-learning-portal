@@ -4,6 +4,7 @@ import { useDeleteQuizMutation } from "../../../features/quiz/quizApi";
 
 const SingleQuiz = ({ quiz }) => {
   const [deleteQuiz] = useDeleteQuizMutation();
+  
   const handleDelete = (e) => {
     e.preventDefault();
     deleteQuiz(quiz?.id);

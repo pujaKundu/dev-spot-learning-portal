@@ -21,9 +21,13 @@ export const quizApi = apiSlice.injectEndpoints({
         try {
           const quiz = await queryFulfilled;
           dispatch(
-            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
-              draft.push(quiz.data);
-            })
+            apiSlice.util.updateQueryData(
+              "getQuizzes",
+              undefined,
+              (draft) => {
+                draft.push(quiz.data);
+              }
+            )
           );
         } catch (err) {}
       },
@@ -38,12 +42,16 @@ export const quizApi = apiSlice.injectEndpoints({
         try {
           const quiz = await queryFulfilled;
           dispatch(
-            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
-              const index = draft.findIndex((t) => t?.id == quiz?.data?.id);
-              if (index != -1) {
-                draft[index] = quiz.data;
+            apiSlice.util.updateQueryData(
+              "getAllQuizzes",
+              undefined,
+              (draft) => {
+                const index = draft.findIndex((t) => t?.id == quiz?.data?.id);
+                if (index != -1) {
+                  draft[index] = quiz.data;
+                }
               }
-            })
+            )
           );
         } catch (error) {}
       },
@@ -57,7 +65,7 @@ export const quizApi = apiSlice.injectEndpoints({
         const quizId = arg;
         try {
           dispatch(
-            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
+            apiSlice.util.updateQueryData("getAllQuizzes", undefined, (draft) => {
               const index = draft.findIndex((t) => t?.id === quizId);
               if (index !== -1) {
                 draft.splice(index, 1);
@@ -70,10 +78,14 @@ export const quizApi = apiSlice.injectEndpoints({
         if (error) {
           const quizIdId = arg;
           dispatch(
-            apiSlice.util.updateQueryData("getVideos", undefined, (draft) => {
-              const quizId = { id: quizIdId };
-              draft.push(quizId);
-            })
+            apiSlice.util.updateQueryData(
+              "getAllQuizzes",
+              undefined,
+              (draft) => {
+                const quizId = { id: quizIdId };
+                draft.push(quizId);
+              }
+            )
           );
         }
       },
