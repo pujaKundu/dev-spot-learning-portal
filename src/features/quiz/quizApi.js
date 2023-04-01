@@ -43,7 +43,7 @@ export const quizApi = apiSlice.injectEndpoints({
           const quiz = await queryFulfilled;
           dispatch(
             apiSlice.util.updateQueryData(
-              "getAllQuizzes",
+              "getQuizzes",
               undefined,
               (draft) => {
                 const index = draft.findIndex((t) => t?.id == quiz?.data?.id);
