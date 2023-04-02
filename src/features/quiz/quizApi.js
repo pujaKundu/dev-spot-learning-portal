@@ -11,6 +11,12 @@ export const quizApi = apiSlice.injectEndpoints({
     getQuiz: builder.query({
       query: (id) => `/quizzes/${id}`,
     }),
+    getQuizMarks: builder.query({
+      query: () => `/quizMark`,
+    }),
+    getQuizMarkByStudent: builder.query({
+      query: (studentId) => `/quizMark?student_id=${studentId}`,
+    }),
     addQuiz: builder.mutation({
       query: (data) => ({
         url: "/quizzes",
@@ -21,8 +27,25 @@ export const quizApi = apiSlice.injectEndpoints({
         try {
           const quiz = await queryFulfilled;
           dispatch(
+            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
+              draft.push(quiz.data);
+            })
+          );
+        } catch (err) {}
+      },
+    }),
+    addQuizMark: builder.mutation({
+      query: (data) => ({
+        url: "/quizMark",
+        method: "POST",
+        body: data,
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const quiz = await queryFulfilled;
+          dispatch(
             apiSlice.util.updateQueryData(
-              "getQuizzes",
+              "getQuizMarks",
               undefined,
               (draft) => {
                 draft.push(quiz.data);
@@ -42,16 +65,12 @@ export const quizApi = apiSlice.injectEndpoints({
         try {
           const quiz = await queryFulfilled;
           dispatch(
-            apiSlice.util.updateQueryData(
-              "getQuizzes",
-              undefined,
-              (draft) => {
-                const index = draft.findIndex((t) => t?.id == quiz?.data?.id);
-                if (index != -1) {
-                  draft[index] = quiz.data;
-                }
+            apiSlice.util.updateQueryData("getQuizzes", undefined, (draft) => {
+              const index = draft.findIndex((t) => t?.id == quiz?.data?.id);
+              if (index != -1) {
+                draft[index] = quiz.data;
               }
-            )
+            })
           );
         } catch (error) {}
       },
@@ -65,12 +84,16 @@ export const quizApi = apiSlice.injectEndpoints({
         const quizId = arg;
         try {
           dispatch(
-            apiSlice.util.updateQueryData("getAllQuizzes", undefined, (draft) => {
-              const index = draft.findIndex((t) => t?.id === quizId);
-              if (index !== -1) {
-                draft.splice(index, 1);
+            apiSlice.util.updateQueryData(
+              "getAllQuizzes",
+              undefined,
+              (draft) => {
+                const index = draft.findIndex((t) => t?.id === quizId);
+                if (index !== -1) {
+                  draft.splice(index, 1);
+                }
               }
-            })
+            )
           );
         } catch (error) {}
       },
@@ -95,9 +118,12 @@ export const quizApi = apiSlice.injectEndpoints({
 
 export const {
   useGetAllQuizzesQuery,
+  useGetQuizMarksQuery,
   useGetQuizzesQuery,
   useGetQuizQuery,
+  useGetQuizMarkByStudentQuery,
   useAddQuizMutation,
+  useAddQuizMarkMutation,
   useEditQuizMutation,
   useDeleteQuizMutation,
 } = quizApi;

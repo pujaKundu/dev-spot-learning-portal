@@ -21,6 +21,7 @@ import {
   AddQuiz,
   EditQuiz,
 } from "./components/admin/index";
+import Leaderboard from "./components/student/leaderboard/Leaderboard";
 
 function App() {
   const authChecked = useAuthCheck();
@@ -45,7 +46,8 @@ function App() {
               <StudentRegistration />
             </PublicRoute>
           }
-        />
+          />
+          {/* student routes */}
         <Route
           path="/portal/:videoId"
           element={
@@ -59,6 +61,14 @@ function App() {
           element={
             <PrivateRoute>
               <QuizModal />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/leaderboard"
+          element={
+            <PrivateRoute>
+              <Leaderboard />
             </PrivateRoute>
           }
         />

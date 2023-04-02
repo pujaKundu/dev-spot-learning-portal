@@ -10,7 +10,7 @@ const AssignmentModal = ({
   setSubmittedVideo,
 }) => {
   const [addAssignment, { isSuccess }] = useAddAssignmentMutation();
-  // {email: 'puja@gmail.com', name: 'puja kundu', role: 'student', id: 10}
+ 
   const [repo, setRepo] = useState("");
   const { id, title, video_id, totalMark } = assignment[0] || {};
 
