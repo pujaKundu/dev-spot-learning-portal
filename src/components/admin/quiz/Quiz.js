@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useGetAllQuizzesQuery } from "../../../features/quiz/quizApi";
 import { AdminNavbar, SingleQuiz } from "../index";
+import Loader from "../../Loader";
 
 const Quiz = () => {
   const { data: quizzes, isLoading, isError } = useGetAllQuizzesQuery();
   let content = null;
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading) content = <Loader/>;
 
   if (!isLoading && isError)
     content = <p className="error">There was an error occured</p>;

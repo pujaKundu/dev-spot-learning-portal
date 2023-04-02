@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useGetQuizzesQuery } from "../../../../features/quiz/quizApi";
 import QuizOption from "./QuizOption";
 import { useAddQuizMarkMutation } from "../../../../features/quizMark/quizMarkApi";
+import Loader from "../../../Loader";
 
 const QuizModal = () => {
   const navigate=useNavigate()
@@ -103,7 +104,7 @@ const QuizModal = () => {
   let content = null;
 
   if (isLoading) {
-    content = <div>Loading...</div>;
+    content = <Loader/>;
   }
   if (!isLoading && isError) {
     content = <p className="error">There was an error occured</p>;

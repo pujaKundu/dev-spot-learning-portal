@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { AdminNavbar, Video } from "../index";
 import { useGetVideosQuery } from "../../../features/videos/videosApi";
+import Loader from "../../Loader";
 
 const Videos = () => {
   const { data: videos, isLoading, isError } = useGetVideosQuery();
   let content = null;
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading) content = <Loader/>;
 
   if (!isLoading && isError)
     content = <p className="error">There was an error occured</p>;

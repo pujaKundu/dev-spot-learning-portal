@@ -46,8 +46,8 @@ function App() {
               <StudentRegistration />
             </PublicRoute>
           }
-          />
-          {/* student routes */}
+        />
+        {/* student routes */}
         <Route
           path="/portal/:videoId"
           element={
@@ -64,6 +64,7 @@ function App() {
             </PrivateRoute>
           }
         />
+      
         <Route
           path="/leaderboard/:id"
           element={

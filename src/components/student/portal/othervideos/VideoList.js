@@ -1,11 +1,12 @@
 import React from "react";
 import { useGetVideosQuery } from "../../../../features/videos/videosApi";
 import SingleVideo from "./SingleVideo";
+import Loader from "../../../Loader";
 
 const VideoList = ({ setId }) => {
   const { data: videos, isLoading, isError } = useGetVideosQuery();
   let content = null;
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading) content = <Loader/>;
 
   if (!isLoading && isError)
     content = <p className="error">There was an error occured</p>;

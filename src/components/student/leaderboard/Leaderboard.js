@@ -114,43 +114,54 @@ const Leaderboard = () => {
   top20Row = top20Data?.map((user) => <TopRank key={user.id} user={user} />);
 
   return (
-    <div>
-      <section className="py-6 bg-primary">
-        <div className="mx-auto max-w-7xl px-5 lg:px-0">
-          <div>
-            <h3 className="text-lg font-bold">Your Position in Leaderboard</h3>
-            <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
-              <thead>
-                <tr className="bg-slate-800">
-                  <th className="table-th !text-center">Rank</th>
-                  <th className="table-th !text-center">Name</th>
-                  <th className="table-th !text-center">Quiz Mark</th>
-                  <th className="table-th !text-center">Assignment Mark</th>
-                  <th className="table-th !text-center">Total</th>
-                </tr>
-              </thead>
-              {individualRow}
-            </table>
-          </div>
-
-          <div className="my-8">
-            <h3 className="text-lg font-bold">Top 20 Result</h3>
-            <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
-              <thead>
-                <tr className="border-b border-slate-600/50 bg-slate-800">
-                  <th className="table-th !text-center">Rank</th>
-                  <th className="table-th !text-center">Name</th>
-                  <th className="table-th !text-center">Quiz Mark</th>
-                  <th className="table-th !text-center">Assignment Mark</th>
-                  <th className="table-th !text-center">Total</th>
-                </tr>
-              </thead>
-              {top20Row}
-            </table>
-          </div>
+    <section className="py-6 bg-primary">
+      <h1 className="text-3xl text-center font-semibold my-5">
+        <span className="text-cyan-300">লিডার</span>বোর্ড
+      </h1>
+      <div className="mx-auto max-w-7xl px-5 lg:px-0">
+        <div>
+          <h3 className="text-lg font-bold text-slate-300">
+            লিডারবোর্ড এ আপনার অবস্থান
+          </h3>
+          <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
+            <thead>
+              <tr className="bg-slate-800">
+                <th className="table-th !text-center">র‍্যাঙ্ক</th>
+                <th className="table-th !text-center">নাম</th>
+                <th className="table-th !text-center">
+                  কুইজ থেকে প্রাপ্ত নাম্বার
+                </th>
+                <th className="table-th !text-center">
+                  এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
+                </th>
+                <th className="table-th !text-center">মোট নাম্বার</th>
+              </tr>
+            </thead>
+            {individualRow}
+          </table>
         </div>
-      </section>
-    </div>
+
+        <div className="my-8">
+          <h3 className="text-lg font-bold text-slate-300">টপ পারফরমারস</h3>
+          <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
+            <thead>
+              <tr className="bg-slate-800">
+                <th className="table-th !text-center">র‍্যাঙ্ক</th>
+                <th className="table-th !text-center">নাম</th>
+                <th className="table-th !text-center">
+                  কুইজ থেকে প্রাপ্ত নাম্বার
+                </th>
+                <th className="table-th !text-center">
+                  এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
+                </th>
+                <th className="table-th !text-center">মোট নাম্বার</th>
+              </tr>
+            </thead>
+            {top20Row}
+          </table>
+        </div>
+      </div>
+    </section>
   );
 };
 

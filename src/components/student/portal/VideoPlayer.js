@@ -1,7 +1,9 @@
+import Loader from "../../Loader";
+
 const VideoPlayer = ({ url, title, isLoading, isError }) => {
   let content = null;
   if (isLoading && !isError) {
-    content = <p>Loading...</p>;
+    content = <Loader/>;
   }
   if (!isLoading && isError)
     content = <p className="error">There was an error occured</p>;

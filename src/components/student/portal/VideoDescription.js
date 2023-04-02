@@ -9,6 +9,7 @@ import {
   useGetAssignmentMarkQuery,
   useGetAssignmentsQuery,
 } from "../../../features/assignments/assignmentsApi";
+import Loader from "../../Loader";
 
 const VideoDescription = ({ video, user, id }) => {
   const date = new Date(video?.createdAt);
@@ -87,13 +88,13 @@ const VideoDescription = ({ video, user, id }) => {
 
   if (quizSubmitted || matchQuiz) {
     quizContent = (
-      <div className="px-3 py-1 font-bold flex space-x-2 text-sm border border-teal-700 rounded-full">
+      <div className="px-4 py-1.5 font-bold flex space-x-2 border border-yellow-300  rounded-full">
         <svg
           stroke="currentColor"
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 16 16"
-          className="h-4 w-4 text-teal-700 dark:text-teal-400"
+          className="h-4 w-4 text-yellow-300"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -101,9 +102,7 @@ const VideoDescription = ({ video, user, id }) => {
           <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
           <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
         </svg>
-        <span className="text-xs text-teal-700 dark:text-teal-400">
-          কুইজ দিয়েছেন
-        </span>
+        <span className="text-xs text-yellow-300 ">কুইজ দিয়েছেন</span>
       </div>
     );
   }
@@ -131,13 +130,13 @@ const VideoDescription = ({ video, user, id }) => {
 
   if (assignmentSubmitted || matchAssignment) {
     assignmentContent = (
-      <div className="px-3 py-1 font-bold flex items-center justify-center space-x-2  hover:bg-green-500 hover:text-primary hover:border-0 border rounded-full">
+      <div className="px-3 py-1 font-bold flex items-center justify-center space-x-2  hover:bg-green-500 hover:text-primary hover:border-0 border border-green-500 rounded-full">
         <svg
           stroke="currentColor"
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 16 16"
-          className="h-4 w-4 text-teal-700 dark:text-teal-400"
+          className="h-4 w-4 text-green-500"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +144,7 @@ const VideoDescription = ({ video, user, id }) => {
           <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
           <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
         </svg>
-        <span className=" font-bold  text-green-500 rounded-full text-sm hover:text-primary">
+        <span className=" font-bold  text-green-600 rounded-full text-sm hover:text-primary">
           এসাইনমেন্ট জমা হয়েছে
         </span>
       </div>
@@ -154,7 +153,7 @@ const VideoDescription = ({ video, user, id }) => {
   // decide what to render
   let content = null;
   if (isLoading && !isError) {
-    content = <p>Loading...</p>;
+    content = <Loader />;
   }
   if (!isLoading && isError)
     content = <p className="error">There was an error</p>;
@@ -170,23 +169,6 @@ const VideoDescription = ({ video, user, id }) => {
 
         <div className="flex items-center  gap-4">
           {assignmentContent}
-          {/* {!isAssignmentSubmitted && assignment?.length === 0 ? (
-            <p className="px-3 font-bold py-1 border border-red text-cyan rounded-full text-sm hover:bg-red hover:text-primary">
-              {" "}
-              এসাইনমেন্ট নেই
-            </p>
-          ) : isAssignmentSubmitted || matchAssignment ? (
-            <p className="px-3 font-bold py-1 border border-red text-green-500 rounded-full text-sm hover:text-primary hover:bg-green-500 hover:border-0">
-              এসাইনমেন্ট জমা হয়েছে
-            </p>
-          ) : (
-            <button
-              className="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
-              onClick={controlModal}
-            >
-              এসাইনমেন্ট
-            </button>
-          )} */}
           <Link to={`/quiz/${video?.id}`}>{quizContent}</Link>
         </div>
         <p className="mt-4 text-sm text-slate-400 leading-6">

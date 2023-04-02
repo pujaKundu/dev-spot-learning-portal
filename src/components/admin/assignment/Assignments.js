@@ -1,6 +1,7 @@
 import { AdminNavbar, Assignment } from "../index";
 import { Link } from "react-router-dom";
 import { useGetAllAssignmentsQuery } from "../../../features/assignments/assignmentsApi";
+import Loader from "../../Loader";
 
 const Assignments = () => {
   const {
@@ -9,7 +10,7 @@ const Assignments = () => {
     isError,
   } = useGetAllAssignmentsQuery();
   let content = null;
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading) content = <Loader/>;
 
   if (!isLoading && isError)
     content = <p className="error">There was an error occured</p>;

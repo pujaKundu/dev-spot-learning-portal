@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../features/auth/authSlice";
-import logo from "../../image/learningportal.svg";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import logo from '../../image/learningportal.svg'
+import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
-  const {id}=useParams()
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -18,10 +18,12 @@ const Navbar = ({ user }) => {
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img className={logo} alt="logo" />
+        <img src={logo} alt="logo" />
         <div className="flex items-center gap-3">
-          <Link to={`/leaderboard/${id}`}>Leaderboard</Link>
-          <h2 className="font-bold">{user?.name}</h2>
+          <Link to={`/leaderboard/${user?.id}`} className="text-slate-300 hover:text-slate-100">
+            লিডারবোর্ড
+          </Link>
+          <h2 className="font-bold text-cyan-300 uppercase">{user?.name}</h2>
           <button
             className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan "
             onClick={logout}
