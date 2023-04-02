@@ -10,7 +10,7 @@ const VideoToPlay = ({ id }) => {
   const user = storedData?.user;
 
   return (
-    <div class="col-span-full w-full space-y-8 lg:col-span-2">
+    <div className="col-span-full w-full space-y-8 lg:col-span-2">
       <VideoPlayer
         url={video?.url}
         title={video?.title}

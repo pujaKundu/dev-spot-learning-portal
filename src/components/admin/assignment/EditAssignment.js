@@ -51,12 +51,12 @@ const EditAssignment = () => {
           onSubmit={handleSubmit}
           className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
         >
-          <div class="mb-4">
-            <label class="block text-slate-300 font-bold mb-2 " for="title">
+          <div className="mb-4">
+            <label className="block text-slate-300 font-bold mb-2 " for="title">
               Title
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id="title"
               type="text"
               placeholder="Enter title"
@@ -66,8 +66,8 @@ const EditAssignment = () => {
             />
           </div>
 
-          <div class="mb-4">
-            <label class="block text-slate-300 font-bold mb-2 " for="title">
+          <div className="mb-4">
+            <label className="block text-slate-300 font-bold mb-2 " for="title">
               Video Title
             </label>
             <select
@@ -87,12 +87,15 @@ const EditAssignment = () => {
             </select>
           </div>
 
-          <div class="mb-4">
-            <label class="block text-slate-300 font-bold mb-2" for="duration">
+          <div className="mb-4">
+            <label
+              className="block text-slate-300 font-bold mb-2"
+              for="duration"
+            >
               Total Mark
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id="duration"
               type="text"
               placeholder="Enter duration"
@@ -102,9 +105,9 @@ const EditAssignment = () => {
             />
           </div>
 
-          <div class="flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <button
-              class="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
+              className="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
               type="submit"
             >
               Update

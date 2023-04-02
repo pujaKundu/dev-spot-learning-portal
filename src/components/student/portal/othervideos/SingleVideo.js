@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const SingleVideo = ({ video, setId }) => {
   const { title, views, duration, id } = video;
-const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleId = (id) => {
     setId(id);
     navigate(`/portal/${id}`);
@@ -11,7 +11,7 @@ const navigate=useNavigate()
 
   return (
     <div
-      class="w-full flex flex-row gap-2 cursor-pointer hover:bg-slate-900 p-2 py-3"
+      className="w-full flex flex-row gap-2 cursor-pointer hover:bg-slate-900 p-2 py-3"
       onClick={() => handleId(video?.id)}
     >
       <svg
@@ -19,7 +19,7 @@ const navigate=useNavigate()
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-6 h-6"
+        className="w-6 h-6"
       >
         <path
           stroke-linecap="round"
@@ -33,11 +33,11 @@ const navigate=useNavigate()
         />
       </svg>
       <div clas="flex flex-col w-full">
-        <p class="text-slate-50 text-sm font-medium">{title}</p>
+        <p className="text-slate-50 text-sm font-medium">{title}</p>
         <div>
-          <span class="text-gray-400 text-xs mt-1">{duration} Mins</span>
-          <span class="text-gray-400 text-xs mt-1"> | </span>
-          <span class="text-gray-400 text-xs mt-1">{views} views</span>
+          <span className="text-gray-400 text-xs mt-1">{duration} Mins</span>
+          <span className="text-gray-400 text-xs mt-1"> | </span>
+          <span className="text-gray-400 text-xs mt-1">{views} views</span>
         </div>
       </div>
     </div>

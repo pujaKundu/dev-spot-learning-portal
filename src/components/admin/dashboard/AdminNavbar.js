@@ -1,31 +1,30 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
-import logo from '../../../image/learningportal.svg'
+import logo from "../../../image/learningportal.svg";
 
 const AdminNavbar = () => {
   const dispatch = useDispatch();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const logout = () => {
     dispatch(userLoggedOut());
     localStorage.clear();
-    navigate('/admin')
-
+    navigate("/admin");
   };
 
   return (
-    <nav class="shadow-md">
-      <div class="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img class={logo} alt="logo" />
-        <div class="flex items-center gap-3">
-          <h2 class="font-bold">Admin</h2>
-          <Link to="/admin/dashboard" class="font-bold">
+    <nav className="shadow-md">
+      <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
+        <img className={logo} alt="logo" />
+        <div className="flex items-center gap-3">
+          <h2 className="font-bold">Admin</h2>
+          <Link to="/admin/dashboard" className="font-bold">
             Dashboard
           </Link>
           <button
             onClick={logout}
-            class="flex gap-2 items-center px-4 py-1 rounded-full text-sm transition-all bg-red-600 hover:bg-red-700 font-medium"
+            className="flex gap-2 items-center px-4 py-1 rounded-full text-sm transition-all bg-red-600 hover:bg-red-700 font-medium"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +32,7 @@ const AdminNavbar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
                 stroke-linecap="round"

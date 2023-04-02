@@ -121,7 +121,7 @@ const VideoDescription = ({ video, user, id }) => {
   if (!isLoading && !isError && assignment?.length > 0) {
     assignmentContent = (
       <button
-        class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
+        className="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
         onClick={controlModal}
       >
         এসাইনমেন্ট
@@ -161,17 +161,17 @@ const VideoDescription = ({ video, user, id }) => {
   else {
     content = (
       <div>
-        <h1 class="text-lg font-semibold tracking-tight text-slate-100">
+        <h1 className="text-lg font-semibold tracking-tight text-slate-100">
           {video?.title}
         </h1>
-        <h2 class=" pb-4 text-sm leading-[1.7142857] text-slate-400">
+        <h2 className=" pb-4 text-sm leading-[1.7142857] text-slate-400">
           Uploaded on {formattedDate}
         </h2>
 
-        <div class="flex items-center  gap-4">
+        <div className="flex items-center  gap-4">
           {assignmentContent}
           {/* {!isAssignmentSubmitted && assignment?.length === 0 ? (
-            <p class="px-3 font-bold py-1 border border-red text-cyan rounded-full text-sm hover:bg-red hover:text-primary">
+            <p className="px-3 font-bold py-1 border border-red text-cyan rounded-full text-sm hover:bg-red hover:text-primary">
               {" "}
               এসাইনমেন্ট নেই
             </p>
@@ -181,7 +181,7 @@ const VideoDescription = ({ video, user, id }) => {
             </p>
           ) : (
             <button
-              class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
+              className="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
               onClick={controlModal}
             >
               এসাইনমেন্ট
@@ -189,7 +189,7 @@ const VideoDescription = ({ video, user, id }) => {
           )} */}
           <Link to={`/quiz/${video?.id}`}>{quizContent}</Link>
         </div>
-        <p class="mt-4 text-sm text-slate-400 leading-6">
+        <p className="mt-4 text-sm text-slate-400 leading-6">
           {video?.description}
         </p>
       </div>

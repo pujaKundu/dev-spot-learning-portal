@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAddVideoMutation } from "../../../features/videos/videosApi";
 
 const AddVideo = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [addVideo, { isSuccess }] = useAddVideoMutation();
 
   //states for input values
@@ -36,7 +36,7 @@ const AddVideo = () => {
     setViews("");
     setDuration("");
     alert("Video Added Successfully");
-    navigate('/admin/videos')
+    navigate("/admin/videos");
   };
 
   return (
@@ -46,12 +46,12 @@ const AddVideo = () => {
         onSubmit={handleSubmit}
         className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
       >
-        <div class="mb-4">
-          <label class="block text-slate-300 font-bold mb-2 " for="title">
+        <div className="mb-4">
+          <label className="block text-slate-300 font-bold mb-2 " for="title">
             Title
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
             id="title"
             type="text"
             placeholder="Enter title"
@@ -60,12 +60,15 @@ const AddVideo = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div class="mb-4">
-          <label class="block text-slate-300 font-bold mb-2" for="description">
+        <div className="mb-4">
+          <label
+            className="block text-slate-300 font-bold mb-2"
+            for="description"
+          >
             Description
           </label>
           <textarea
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
             id="description"
             value={description}
             placeholder="Enter description"
@@ -73,12 +76,12 @@ const AddVideo = () => {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
-        <div class="mb-4">
-          <label class="block text-slate-300 font-bold mb-2" for="url">
+        <div className="mb-4">
+          <label className="block text-slate-300 font-bold mb-2" for="url">
             URL
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
             id="url"
             type="text"
             required
@@ -87,12 +90,12 @@ const AddVideo = () => {
             onChange={(e) => setUrl(e.target.value)}
           />
         </div>
-        <div class="mb-4">
-          <label class="block text-slate-100 font-bold mb-2" for="views">
+        <div className="mb-4">
+          <label className="block text-slate-100 font-bold mb-2" for="views">
             Views
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
             id="views"
             type="text"
             placeholder="Enter views"
@@ -101,12 +104,12 @@ const AddVideo = () => {
             onChange={(e) => setViews(e.target.value)}
           />
         </div>
-        <div class="mb-4">
-          <label class="block text-slate-300 font-bold mb-2" for="duration">
+        <div className="mb-4">
+          <label className="block text-slate-300 font-bold mb-2" for="duration">
             Duration
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
             id="duration"
             type="text"
             placeholder="Enter duration"
@@ -116,9 +119,9 @@ const AddVideo = () => {
           />
         </div>
 
-        <div class="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <button
-            class="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
+            className="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
             type="submit"
           >
             Save

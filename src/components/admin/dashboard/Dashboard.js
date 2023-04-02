@@ -5,20 +5,20 @@ const Dashboard = () => {
   return (
     <div>
       <AdminNavbar />
-      <section class="py-6 bg-primary">
-        <div class="mx-auto max-w-7xl px-5 lg:px-0">
-          <div class="px-3 md:lg:xl:px-40  py-20 bg-opacity-10">
+      <section className="py-6 bg-primary">
+        <div className="mx-auto max-w-7xl px-5 lg:px-0">
+          <div className="px-3 md:lg:xl:px-40  py-20 bg-opacity-10">
             <h3 className="text-2xl text-cyan-300 text-center">
               Admin Dashboard
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2  gap-6 p-8">
-              <Link to="/admin/videos" class="dashboard-item-card">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-6 p-8">
+              <Link to="/admin/videos" className="dashboard-item-card">
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-8 h-8 text-yellow-500"
+                  className="w-8 h-8 text-yellow-500"
                 >
                   <path
                     stroke-linecap="round"
@@ -26,17 +26,17 @@ const Dashboard = () => {
                   />
                 </svg>
 
-                <p class="text-slate-200 mt-3 ">Videos</p>
+                <p className="text-slate-200 mt-3 ">Videos</p>
               </Link>
 
-              <Link to="/admin/assignment" class="dashboard-item-card">
+              <Link to="/admin/assignment" className="dashboard-item-card">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-8 h-8 text-red-500"
+                  className="w-8 h-8 text-red-500"
                 >
                   <path
                     stroke-linecap="round"
@@ -45,16 +45,16 @@ const Dashboard = () => {
                   />
                 </svg>
 
-                <p class="text-slate-200 mt-3">Assignment</p>
+                <p className="text-slate-200 mt-3">Assignment</p>
               </Link>
 
-              <Link to="/admin/quiz" class="dashboard-item-card">
+              <Link to="/admin/quiz" className="dashboard-item-card">
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-8 h-8 text-indigo-500"
+                  className="w-8 h-8 text-indigo-500"
                 >
                   <path
                     stroke-linecap="round"
@@ -62,15 +62,15 @@ const Dashboard = () => {
                     d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   />
                 </svg>
-                <p class="text-slate-200 mt-3 ">Quizzes</p>
+                <p className="text-slate-200 mt-3 ">Quizzes</p>
               </Link>
 
-              <Link to="/admin/assignmentMark" class="dashboard-item-card">
+              <Link to="/admin/assignmentMark" className="dashboard-item-card">
                 <svg
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-8 h-8 text-green-500"
+                  className="w-8 h-8 text-green-500"
                 >
                   <path
                     stroke-linecap="round"
@@ -79,7 +79,7 @@ const Dashboard = () => {
                   />
                 </svg>
 
-                <p class="text-slate-200 mt-3 ">Assignment Mark</p>
+                <p className="text-slate-200 mt-3 ">Assignment Mark</p>
               </Link>
             </div>
           </div>

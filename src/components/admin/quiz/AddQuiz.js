@@ -79,12 +79,12 @@ const AddQuiz = () => {
           onSubmit={handleSubmit}
           className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
         >
-          <div class="mb-4">
-            <label class="block text-slate-300 font-bold mb-2 " for="title">
+          <div className="mb-4">
+            <label className="block text-slate-300 font-bold mb-2 " for="title">
               Question
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id="title"
               type="text"
               placeholder="Enter title"
@@ -93,8 +93,8 @@ const AddQuiz = () => {
               onChange={(e) => setQuestion(e.target.value)}
             />
           </div>
-          <div class="mb-4">
-            <label class="block text-slate-300 font-bold mb-2 " for="title">
+          <div className="mb-4">
+            <label className="block text-slate-300 font-bold mb-2 " for="title">
               Video Title
             </label>
             <select
@@ -117,12 +117,12 @@ const AddQuiz = () => {
           <p className="text-xl font-semibold">
             Enter options and mark the correct answer
           </p>
-          <div class="my-4">
-            <label class="block text-slate-400 font-bold mb-2" for="">
+          <div className="my-4">
+            <label className="block text-slate-400 font-bold mb-2" for="">
               Option 1
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id="duration"
               type="text"
               placeholder="Enter first option"
@@ -140,12 +140,12 @@ const AddQuiz = () => {
             />{" "}
             <span>Is the first option correct ?</span>
           </div>
-          <div class="my-4">
-            <label class="block text-slate-400 font-bold mb-2" for="">
+          <div className="my-4">
+            <label className="block text-slate-400 font-bold mb-2" for="">
               Option 2
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id=""
               type="text"
               placeholder="Enter second option"
@@ -163,12 +163,12 @@ const AddQuiz = () => {
             />{" "}
             <span>Is the second option correct ?</span>
           </div>
-          <div class="my-4">
-            <label class="block text-slate-400 font-bold mb-2" for="">
+          <div className="my-4">
+            <label className="block text-slate-400 font-bold mb-2" for="">
               Option 3
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id="duration"
               type="text"
               placeholder="Enter third option"
@@ -186,12 +186,12 @@ const AddQuiz = () => {
             />{" "}
             <span>Is the first option correct ?</span>
           </div>
-          <div class="my-4">
-            <label class="block text-slate-400 font-bold mb-2" for="">
+          <div className="my-4">
+            <label className="block text-slate-400 font-bold mb-2" for="">
               Option 4
             </label>
             <input
-              class="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
               id="duration"
               type="text"
               placeholder="Enter fourth option"
@@ -210,9 +210,9 @@ const AddQuiz = () => {
             <span>Is the fourth option correct ?</span>
           </div>
 
-          <div class="flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <button
-              class="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
+              className="bg-cyan-500 hover:bg-cyan-700 hover:text-slate-100 text-slate-900 font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-transparent"
               type="submit"
             >
               Save
