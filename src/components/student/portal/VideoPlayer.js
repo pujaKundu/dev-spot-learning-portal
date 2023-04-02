@@ -1,5 +1,3 @@
-import React from "react";
-
 const VideoPlayer = ({ url, title, isLoading, isError }) => {
    let content = null;
    if (isLoading && !isError) {

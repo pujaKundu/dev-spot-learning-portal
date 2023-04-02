@@ -57,27 +57,23 @@ const VideoDescription = ({ video, user, id }) => {
         </h2>
 
         <div class="flex gap-4">
-          {!isAssignmentSubmitted && assignment?.length == 0 ? (
+          {!isAssignmentSubmitted && assignment?.length === 0 ? (
             <p class="px-3 font-bold py-1 border border-red text-cyan rounded-full text-sm hover:bg-red hover:text-primary">
               {" "}
               এসাইনমেন্ট নেই
             </p>
+          ) : isAssignmentSubmitted || matchAssignment ? (
+            <p className="px-3 font-bold py-1 border border-red text-green-500 rounded-full text-sm hover:text-primary hover:bg-green-500 hover:border-0">
+              এসাইনমেন্ট জমা হয়েছে
+            </p>
           ) : (
-            !isAssignmentSubmitted && (
-              <button
-                class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
-                onClick={controlModal}
-              >
-                এসাইনমেন্ট
-              </button>
-            )
+            <button
+              class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
+              onClick={controlModal}
+            >
+              এসাইনমেন্ট
+            </button>
           )}
-          {isAssignmentSubmitted ||
-            matchAssignment &&(
-              <p className="px-3 font-bold py-1 border border-red text-green-500 rounded-full text-sm hover:text-primary">
-                এসাইনমেন্ট জমা হয়েছে
-              </p>
-            )}
           <Link
             to={`/quiz/${video?.id}`}
             class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"

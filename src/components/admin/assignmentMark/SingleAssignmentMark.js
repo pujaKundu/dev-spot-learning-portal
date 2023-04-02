@@ -9,7 +9,7 @@ const SingleAssignmentMark = ({ assignmentMark }) => {
     editMark({ assignmentId: assignmentMark?.id, mark, status });
     setStatus("published");
     if (isSuccess) {
-      alert("Mark updated");
+        alert("Mark updated");
     }
   };
   return (
