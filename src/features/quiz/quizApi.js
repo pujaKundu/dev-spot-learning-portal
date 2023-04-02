@@ -11,12 +11,7 @@ export const quizApi = apiSlice.injectEndpoints({
     getQuiz: builder.query({
       query: (id) => `/quizzes/${id}`,
     }),
-    getQuizMarks: builder.query({
-      query: () => `/quizMark`,
-    }),
-    getQuizMarkByStudent: builder.query({
-      query: (studentId) => `/quizMark?student_id=${studentId}`,
-    }),
+    
     addQuiz: builder.mutation({
       query: (data) => ({
         url: "/quizzes",
@@ -34,27 +29,7 @@ export const quizApi = apiSlice.injectEndpoints({
         } catch (err) {}
       },
     }),
-    addQuizMark: builder.mutation({
-      query: (data) => ({
-        url: "/quizMark",
-        method: "POST",
-        body: data,
-      }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const quiz = await queryFulfilled;
-          dispatch(
-            apiSlice.util.updateQueryData(
-              "getQuizMarks",
-              undefined,
-              (draft) => {
-                draft.push(quiz.data);
-              }
-            )
-          );
-        } catch (err) {}
-      },
-    }),
+    
     editQuiz: builder.mutation({
       query: ({ quizId, data }) => ({
         url: `/quizzes/${quizId}`,
@@ -123,7 +98,7 @@ export const {
   useGetQuizQuery,
   useGetQuizMarkByStudentQuery,
   useAddQuizMutation,
-  useAddQuizMarkMutation,
+ 
   useEditQuizMutation,
   useDeleteQuizMutation,
 } = quizApi;

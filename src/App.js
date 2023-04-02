@@ -65,7 +65,7 @@ function App() {
           }
         />
         <Route
-          path="/leaderboard"
+          path="/leaderboard/:id"
           element={
             <PrivateRoute>
               <Leaderboard />

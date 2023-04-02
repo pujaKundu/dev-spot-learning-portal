@@ -5,6 +5,7 @@ import authSliceReducer from "../features/auth/authSlice";
 import quizReducer from "../features/quiz/quizSlice";
 import videosReducer from "../features/videos/videosSlice";
 import assignmentMarkReducer from "../features/assignmentMark/assignmentMarkSlice";
+import quizMarkReducer from "../features/quizMark/quizMarkSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     auth: authSliceReducer,
     videos: videosReducer,
     quizzes: quizReducer,
+    quizMarks:quizMarkReducer,
     assignments: assignmentsReducer,
     assignmentMarks:assignmentMarkReducer
   },

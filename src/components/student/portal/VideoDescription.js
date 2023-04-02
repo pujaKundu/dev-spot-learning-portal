@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+import AssignmentModal from "./assignment/AssignmentModal";
+import { useGetQuizzesQuery } from "../../../features/quiz/quizApi";
+import formatDate from "../../../utils/formatDate";
+import { useGetQuizMarkByStudentQuery } from "../../../features/quizMark/quizMarkApi";
 import {
   useGetAssignmentMarkQuery,
   useGetAssignmentsQuery,
 } from "../../../features/assignments/assignmentsApi";
-import AssignmentModal from "./assignment/AssignmentModal";
-import {
-  useGetQuizMarkByStudentQuery,
-  useGetQuizzesQuery,
-} from "../../../features/quiz/quizApi";
 
 const VideoDescription = ({ video, user, id }) => {
+  const date = new Date(video?.createdAt);
+  const formattedDate = date.toLocaleString();
+
   const [isAssignmentSubmitted, setIsAssignmentSubmitted] = useState(false);
   const [submittedVideo, setSubmittedVideo] = useState(null);
 
@@ -105,6 +108,49 @@ const VideoDescription = ({ video, user, id }) => {
     );
   }
 
+  //assignment content
+  let assignmentContent = null;
+  if (!isLoading && !isError && assignment?.length === 0) {
+    assignmentContent = (
+      <p className="px-3 font-bold py-1 border border-red text-cyan rounded-full text-sm hover:bg-red hover:text-primary">
+        এসাইনমেন্ট নেই
+      </p>
+    );
+  }
+
+  if (!isLoading && !isError && assignment?.length > 0) {
+    assignmentContent = (
+      <button
+        class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
+        onClick={controlModal}
+      >
+        এসাইনমেন্ট
+      </button>
+    );
+  }
+
+  if (assignmentSubmitted || matchAssignment) {
+    assignmentContent = (
+      <div className="px-3 py-1 font-bold flex items-center justify-center space-x-2  hover:bg-green-500 hover:text-primary hover:border-0 border rounded-full">
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          viewBox="0 0 16 16"
+          className="h-4 w-4 text-teal-700 dark:text-teal-400"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
+          <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
+        </svg>
+        <span className=" font-bold  text-green-500 rounded-full text-sm hover:text-primary">
+          এসাইনমেন্ট জমা হয়েছে
+        </span>
+      </div>
+    );
+  }
   // decide what to render
   let content = null;
   if (isLoading && !isError) {
@@ -119,11 +165,12 @@ const VideoDescription = ({ video, user, id }) => {
           {video?.title}
         </h1>
         <h2 class=" pb-4 text-sm leading-[1.7142857] text-slate-400">
-          Uploaded on {video?.createdAt}
+          Uploaded on {formattedDate}
         </h2>
 
-        <div class="flex gap-4">
-          {!isAssignmentSubmitted && assignment?.length === 0 ? (
+        <div class="flex items-center  gap-4">
+          {assignmentContent}
+          {/* {!isAssignmentSubmitted && assignment?.length === 0 ? (
             <p class="px-3 font-bold py-1 border border-red text-cyan rounded-full text-sm hover:bg-red hover:text-primary">
               {" "}
               এসাইনমেন্ট নেই
@@ -139,13 +186,8 @@ const VideoDescription = ({ video, user, id }) => {
             >
               এসাইনমেন্ট
             </button>
-          )}
-          <Link
-            to={`/quiz/${video?.id}`}
-            class="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan hover:text-primary"
-          >
-            {quizContent}
-          </Link>
+          )} */}
+          <Link to={`/quiz/${video?.id}`}>{quizContent}</Link>
         </div>
         <p class="mt-4 text-sm text-slate-400 leading-6">
           {video?.description}

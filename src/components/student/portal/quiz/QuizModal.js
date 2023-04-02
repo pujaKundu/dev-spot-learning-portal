@@ -1,7 +1,8 @@
 import {useState,useEffect} from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useAddQuizMarkMutation, useGetQuizzesQuery } from "../../../../features/quiz/quizApi";
+import { useGetQuizzesQuery } from "../../../../features/quiz/quizApi";
 import QuizOption from "./QuizOption";
+import { useAddQuizMarkMutation } from "../../../../features/quizMark/quizMarkApi";
 
 const QuizModal = () => {
   const navigate=useNavigate()
@@ -50,6 +51,7 @@ const QuizModal = () => {
     const totalWrong = answers.filter((answer) => !answer.is_correct).length;
     const mark = totalCorrect * 5;
 
+    console.log('mark',mark)
     const quizData = {
       ...formData,
       student_id: id,
@@ -69,7 +71,7 @@ const QuizModal = () => {
           "true"
         );
         setHasSubmitted(true);
-        navigate(`/leaderboard`);
+        navigate(`/leaderboard/${id}`);
       }
     });
   };
@@ -79,6 +81,23 @@ const QuizModal = () => {
       ...prevAnswers,
       [quizId]: { option_id: optionId, is_correct: isCorrect },
     }));
+
+    // check if any other answer for this question has already been submitted
+    const answersForQuestion = Object.values(quizAnswers).filter(
+      (answer) => answer.quiz_id === quizId && answer.option_id !== optionId
+    );
+
+    // if any other answer exists for this question, check if it has the same is_correct value
+    // if not, set the mark to 0
+    if (answersForQuestion.length > 0) {
+      const otherAnswer = answersForQuestion[0];
+      if (otherAnswer.is_correct !== isCorrect) {
+        setFormData((prevData) => ({
+          ...prevData,
+          mark: prevData.mark - 5,
+        }));
+      }
+    }
   };
 
   let content = null;
@@ -106,8 +125,7 @@ const QuizModal = () => {
         <div className="mb-8">
           <div className="my-4">
             <h1 className="text-2xl font-bold">
-              Quizzes for "Debounce Function in JavaScript - JavaScript Job
-              Interview question"
+              Quizzes for {video_title}
             </h1>
             <p className="text-sm text-slate-200">
               Each question contains 5 Mark
