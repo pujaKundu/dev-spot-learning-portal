@@ -7,7 +7,7 @@ import { useGetAllAssignmentMarksQuery } from "../../../features/assignmentMark/
 import { useGetQuizMarksQuery } from "../../../features/quizMark/quizMarkApi";
 
 const Leaderboard = () => {
-  const { student_id } = useParams();
+  const { id:student_id } = useParams();
   const {
     data: assignmentMark,
     isLoading,
