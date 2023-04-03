@@ -6,14 +6,14 @@ import QuizOption from "./QuizOption";
 import { useAddQuizMarkMutation } from "../../../../features/quizMark/quizMarkApi";
 
 const QuizModal = () => {
-  const { video_id } = useParams();
+  const { videoId } = useParams();
   const navigate = useNavigate();
 
   const storedData = JSON.parse(localStorage.getItem("auth"));
   const user = storedData.user;
   const { id, name } = user;
 
-  const { data: quizzes, isLoading, isError } = useGetQuizzesQuery(video_id);
+  const { data: quizzes, isLoading, isError } = useGetQuizzesQuery(videoId);
   const quiz = quizzes ? quizzes[0] : null;
 
   const [formData, setFormData] = useState({
