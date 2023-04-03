@@ -52,7 +52,10 @@ const EditAssignment = () => {
           className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
         >
           <div className="mb-4">
-            <label className="block text-slate-300 font-bold mb-2 " for="title">
+            <label
+              className="block text-slate-300 font-bold mb-2 "
+              htmlFor="title"
+            >
               Title
             </label>
             <input
@@ -67,7 +70,10 @@ const EditAssignment = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-slate-300 font-bold mb-2 " for="title">
+            <label
+              className="block text-slate-300 font-bold mb-2 "
+              htmlFor="title"
+            >
               Video Title
             </label>
             <select
@@ -90,7 +96,7 @@ const EditAssignment = () => {
           <div className="mb-4">
             <label
               className="block text-slate-300 font-bold mb-2"
-              for="duration"
+              htmlFor="duration"
             >
               Total Mark
             </label>

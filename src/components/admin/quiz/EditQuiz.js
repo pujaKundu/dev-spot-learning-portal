@@ -84,7 +84,10 @@ const EditQuiz = () => {
           className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
         >
           <div className="mb-4">
-            <label className="block text-slate-300 font-bold mb-2 " for="title">
+            <label
+              className="block text-slate-300 font-bold mb-2 "
+              htmlFor="title"
+            >
               Question
             </label>
             <input
@@ -98,7 +101,10 @@ const EditQuiz = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-slate-300 font-bold mb-2 " for="title">
+            <label
+              className="block text-slate-300 font-bold mb-2 "
+              htmlFor="title"
+            >
               Video Title
             </label>
             <select
@@ -123,7 +129,7 @@ const EditQuiz = () => {
             Enter options and mark the correct answer
           </p>
           <div className="my-4">
-            <label className="block text-slate-400 font-bold mb-2" for="">
+            <label className="block text-slate-400 font-bold mb-2" htmlFor="">
               Option 1
             </label>
             <input
@@ -146,7 +152,7 @@ const EditQuiz = () => {
             <span>Is the first option correct ?</span>
           </div>
           <div className="my-4">
-            <label className="block text-slate-400 font-bold mb-2" for="">
+            <label className="block text-slate-400 font-bold mb-2" htmlFor="">
               Option 2
             </label>
             <input
@@ -169,7 +175,7 @@ const EditQuiz = () => {
             <span>Is the second option correct ?</span>
           </div>
           <div className="my-4">
-            <label className="block text-slate-400 font-bold mb-2" for="">
+            <label className="block text-slate-400 font-bold mb-2" htmlFor="">
               Option 3
             </label>
             <input
@@ -192,7 +198,7 @@ const EditQuiz = () => {
             <span>Is the first option correct ?</span>
           </div>
           <div className="my-4">
-            <label className="block text-slate-400 font-bold mb-2" for="">
+            <label className="block text-slate-400 font-bold mb-2" htmlFor="">
               Option 4
             </label>
             <input

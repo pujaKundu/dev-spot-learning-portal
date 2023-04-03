@@ -1,6 +1,6 @@
 import React from "react";
 
-const QuizOption = ({ quiz ,onAnswer}) => {
+const QuizOption = ({ quiz, onAnswer }) => {
   const { question, options } = quiz || {};
   let content = null;
   if (options?.length > 0) {
@@ -18,10 +18,7 @@ const QuizOption = ({ quiz ,onAnswer}) => {
   return (
     <div className="quiz">
       <h4 className="question">{question}</h4>
-      <form className="quizOptions">
-        
-        {content}
-      </form>
+      <form className="quizOptions">{content}</form>
     </div>
   );
 };

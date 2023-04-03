@@ -1,7 +1,7 @@
 import React from "react";
 
 const TopRank = ({ user }) => {
-  const { rank, totalassignmentMarks, totalQuizMark, total, name } =
+  const { rank, totalAssignmentMark, totalQuizMark, total, name } =
         user || {};
    
   return (
@@ -17,7 +17,7 @@ const TopRank = ({ user }) => {
           {totalQuizMark}
         </td>
         <td className="table-td text-center font-bold border border-slate-700">
-          {totalassignmentMarks}
+          {totalAssignmentMark}
         </td>
         <td className="table-td text-center font-bold border border-slate-700">
           {total}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useLoginMutation } from '../../features/auth/authApi';
+import { useLoginMutation } from "../../features/auth/authApi";
 import logo from "../../image/learningportal.svg";
 import Error from "../ui/Error";
 
@@ -50,14 +50,14 @@ const StudentLogin = () => {
           >
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label for="email-address" className="sr-only">
+                <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
                 <input
                   id="email-address"
                   name="email"
                   type="email"
-                  autocomplete="email"
+                  autoComplete="email"
                   required
                   className="login-input  bg-slate-900 border-0 border-b mb-3"
                   placeholder="Email address"
@@ -66,14 +66,14 @@ const StudentLogin = () => {
                 />
               </div>
               <div>
-                <label for="password" className="sr-only">
+                <label htmlFor="password" className="sr-only">
                   Password
                 </label>
                 <input
                   id="password"
                   name="password"
                   type="password"
-                  autocomplete="current-password"
+                  autoComplete="current-password"
                   required
                   className="login-input  bg-slate-900 border-0 border-b"
                   placeholder="Password"

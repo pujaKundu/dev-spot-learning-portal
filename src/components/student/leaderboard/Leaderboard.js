@@ -1,20 +1,20 @@
 import React from "react";
-import Navbar from "../../shared/Navbar";
-import OwnRank from "./OwnRank";
-import TopRank from "./TopRank";
 import { useParams } from "react-router-dom";
+
+import TopRank from './TopRank'
+import OwnRank from "./OwnRank";
 import { useGetAllAssignmentMarksQuery } from "../../../features/assignmentMark/assignmentMarkApi";
 import { useGetQuizMarksQuery } from "../../../features/quizMark/quizMarkApi";
 
 const Leaderboard = () => {
-  const { id } = useParams();
+  const { student_id } = useParams();
   const {
-    data: assignmentMarks,
+    data: assignmentMark,
     isLoading,
     isError,
   } = useGetAllAssignmentMarksQuery();
   const {
-    data: quizMarks,
+    data: quizMark,
     isLoading: loading,
     isError: error,
   } = useGetQuizMarksQuery();
@@ -22,71 +22,48 @@ const Leaderboard = () => {
   let quizIterable = [];
   let assignmentIterable = [];
 
-  console.log(assignmentMarks);
-  if (!isLoading && !isError && assignmentMarks?.length > 0) {
-    assignmentIterable = assignmentMarks;
+  if (!isLoading && !isError && assignmentMark?.length > 0) {
+    assignmentIterable = assignmentMark;
   }
 
-  if (!loading && !error && quizMarks?.length > 0) {
-    quizIterable = quizMarks;
+  if (!loading && !error && quizMark?.length > 0) {
+    quizIterable = quizMark;
   }
 
-  // combining quizMark and assignmentMarks
+  // combining quizMark and assignmentMark
   const combinedData = [...quizIterable, ...assignmentIterable];
   const students = {};
 
   // Loop through the combined data and sum the marks for each student
   combinedData.forEach((item) => {
-    if (!students[item.id]) {
-      students[item.id] = {
-        id: item.id,
+    if (!students[item.student_id]) {
+      students[item.student_id] = {
+        id: item.student_id,
         name: item.student_name,
         totalQuizMark: 0,
-        totalassignmentMarks: 0,
+        totalAssignmentMark: 0,
         total: 0,
       };
     }
 
     if (item.mark !== undefined && item.totalQuiz === undefined) {
-      students[item.id].totalassignmentMarks += item.mark;
+      students[item.student_id].totalAssignmentMark += item.mark;
     }
 
     if (item.totalMark !== undefined && item.totalQuiz !== undefined) {
       const quizMark = item.totalCorrect * 5;
-      students[item.id].totalQuizMark += quizMark;
+      students[item.student_id].totalQuizMark += quizMark;
     }
   });
 
-  const uniqueStudents = combinedData.reduce((acc, item) => {
-    if (!acc[item.id]) {
-      acc[item.id] = {
-        id: item.id,
-        name: item.student_name,
-        totalQuizMark: 0,
-        totalassignmentMarks: 0,
-        total: 0,
-      };
-    }
-
-    if (item.mark !== undefined && item.totalQuiz === undefined) {
-      acc[item.id].totalassignmentMarks += item.mark;
-    }
-
-    if (item.totalMark !== undefined && item.totalQuiz !== undefined) {
-      const quizMark = item.totalCorrect * 5;
-      acc[item.id].totalQuizMark += quizMark;
-    }
-
-    return acc;
-  }, {});
   // Convert the object to an array and calculate the total score and rank
   let lastTotal = -1;
   let currentRank = 0;
 
-  const studentArray = Object.values(uniqueStudents)
+  const studentArray = Object.values(students)
     .map((student) => ({
       ...student,
-      total: student.totalQuizMark + student.totalassignmentMarks,
+      total: student.totalQuizMark + student.totalAssignmentMark,
     }))
     .sort((a, b) => b.total - a.total)
     .map((student, index, arr) => {
@@ -103,10 +80,12 @@ const Leaderboard = () => {
       return student;
     });
 
-  console.log("qmar", studentArray);
+  
   let individualRow = null;
   individualRow = studentArray?.map((user) =>
-    user.id === parseInt(id) ? <OwnRank key={user.id} user={user} /> : null
+    user.id === parseInt(student_id) ? (
+      <OwnRank key={user.id} user={user} />
+    ) : null
   );
 
   const top20Data = studentArray.slice(0, 20);
@@ -114,29 +93,19 @@ const Leaderboard = () => {
   top20Row = top20Data?.map((user) => <TopRank key={user.id} user={user} />);
 
   return (
-    <>
-      <Navbar />
+    <div>
       <section className="py-6 bg-primary">
-        <h1 className="text-3xl text-center font-semibold my-5">
-          <span className="text-cyan-300">লিডার</span>বোর্ড
-        </h1>
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div>
-            <h3 className="text-lg font-bold text-slate-300">
-              লিডারবোর্ড এ আপনার অবস্থান
-            </h3>
+            <h3 className="text-lg font-bold">Your Position in Leaderboard</h3>
             <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
               <thead>
-                <tr className="bg-slate-800">
-                  <th className="table-th !text-center">র‍্যাঙ্ক</th>
-                  <th className="table-th !text-center">নাম</th>
-                  <th className="table-th !text-center">
-                    কুইজ থেকে প্রাপ্ত নাম্বার
-                  </th>
-                  <th className="table-th !text-center">
-                    এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
-                  </th>
-                  <th className="table-th !text-center">মোট নাম্বার</th>
+                <tr>
+                  <th className="table-th !text-center">Rank</th>
+                  <th className="table-th !text-center">Name</th>
+                  <th className="table-th !text-center">Quiz Mark</th>
+                  <th className="table-th !text-center">Assignment Mark</th>
+                  <th className="table-th !text-center">Total</th>
                 </tr>
               </thead>
               {individualRow}
@@ -144,19 +113,15 @@ const Leaderboard = () => {
           </div>
 
           <div className="my-8">
-            <h3 className="text-lg font-bold text-slate-300">টপ পারফরমারস</h3>
+            <h3 className="text-lg font-bold">Top 20 Result</h3>
             <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
               <thead>
-                <tr className="bg-slate-800">
-                  <th className="table-th !text-center">র‍্যাঙ্ক</th>
-                  <th className="table-th !text-center">নাম</th>
-                  <th className="table-th !text-center">
-                    কুইজ থেকে প্রাপ্ত নাম্বার
-                  </th>
-                  <th className="table-th !text-center">
-                    এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
-                  </th>
-                  <th className="table-th !text-center">মোট নাম্বার</th>
+                <tr className="border-b border-slate-600/50">
+                  <th className="table-th !text-center">Rank</th>
+                  <th className="table-th !text-center">Name</th>
+                  <th className="table-th !text-center">Quiz Mark</th>
+                  <th className="table-th !text-center">Assignment Mark</th>
+                  <th className="table-th !text-center">Total</th>
                 </tr>
               </thead>
               {top20Row}
@@ -164,7 +129,7 @@ const Leaderboard = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

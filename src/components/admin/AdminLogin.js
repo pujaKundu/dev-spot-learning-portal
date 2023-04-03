@@ -37,7 +37,7 @@ const AdminLogin = () => {
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="email-address" className="sr-only">
+              <label htmlhtmlFor="email-address" className="sr-only">
                 Email address
               </label>
               <input
@@ -53,7 +53,7 @@ const AdminLogin = () => {
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only">
+              <label htmlhtmlFor="password" className="sr-only">
                 Password
               </label>
               <input

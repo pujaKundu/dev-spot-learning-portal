@@ -65,7 +65,10 @@ const EditVideo = () => {
           className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
         >
           <div className="mb-4">
-            <label className="block text-slate-300 font-bold mb-2 " for="title">
+            <label
+              className="block text-slate-300 font-bold mb-2 "
+              htmlFor="title"
+            >
               Title
             </label>
             <input
@@ -81,7 +84,7 @@ const EditVideo = () => {
           <div className="mb-4">
             <label
               className="block text-slate-300 font-bold mb-2"
-              for="description"
+              htmlFor="description"
             >
               Description
             </label>
@@ -95,7 +98,10 @@ const EditVideo = () => {
             ></textarea>
           </div>
           <div className="mb-4">
-            <label className="block text-slate-300 font-bold mb-2" for="url">
+            <label
+              className="block text-slate-300 font-bold mb-2"
+              htmlFor="url"
+            >
               URL
             </label>
             <input
@@ -109,7 +115,10 @@ const EditVideo = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-slate-100 font-bold mb-2" for="views">
+            <label
+              className="block text-slate-100 font-bold mb-2"
+              htmlFor="views"
+            >
               Views
             </label>
             <input
@@ -125,7 +134,7 @@ const EditVideo = () => {
           <div className="mb-4">
             <label
               className="block text-slate-300 font-bold mb-2"
-              for="duration"
+              htmlFor="duration"
             >
               Duration
             </label>
@@ -140,7 +149,7 @@ const EditVideo = () => {
             />
           </div>
           {/* <div className="mb-4">
-          <label className="block text-slate-300 font-bold mb-2" for="duration">
+          <label className="block text-slate-300 font-bold mb-2" htmlFor="duration">
             Created At
           </label>
           <input

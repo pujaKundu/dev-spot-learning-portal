@@ -10,7 +10,7 @@ const AssignmentModal = ({
   setSubmittedVideo,
 }) => {
   const [addAssignment, { isSuccess }] = useAddAssignmentMutation();
- 
+
   const [repo, setRepo] = useState("");
   const { id, title, video_id, totalMark } = assignment[0] || {};
 
@@ -35,7 +35,7 @@ const AssignmentModal = ({
     addAssignment(formData);
     setIsAssignmentSubmitted(true);
     setSubmittedVideo(video_id);
-    localStorage.setItem(`assignment_${id}_submitted_by_${user?.id}`, video_id); 
+    localStorage.setItem(`assignment_${id}_submitted_by_${user?.id}`, video_id);
   };
 
   return (
@@ -54,7 +54,7 @@ const AssignmentModal = ({
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <p className="my-2">গিটহাব রিপোসিটরি লিংক :</p>
-                <label htmlFor="to" className="sr-only">
+                <label htmlhtmlFor="to" className="sr-only">
                   GitHub Repository
                 </label>
                 <input

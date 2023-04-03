@@ -1,23 +1,18 @@
 import React from "react";
 
 const OwnRank = ({ user }) => {
-  const { rank, totalassignmentMarks, totalQuizMark, total, name } = user ;
+ 
+  const { rank, totalAssignmentMark, totalQuizMark, total, name } = user;
   return (
     <tbody>
-      <tr className="border-1 border-cyan-500 ">
-        <td className="table-td text-center font-semibold text-cyan-400 border border-slate-700">
-          {rank}
+      <tr className="border-2 border-cyan">
+        <td className="table-td text-center font-bold">{rank}</td>
+        <td className="table-td text-center font-bold">{name}</td>
+        <td className="table-td text-center font-bold">{totalQuizMark}</td>
+        <td className="table-td text-center font-bold">
+          {totalAssignmentMark}
         </td>
-        <td className="table-td text-left font-semibold text-cyan-400 border border-slate-700">
-          {name}
-        </td>
-        <td className="table-td text-center font-semibold text-cyan-400 border border-slate-700">
-          {totalQuizMark}
-        </td>
-        <td className="table-td text-center font-semibold text-cyan-400 border border-slate-700">
-          {totalassignmentMarks}
-        </td>
-        <td className="table-td text-center font-semibold">{total}</td>
+        <td className="table-td text-center font-bold">{total}</td>
       </tr>
     </tbody>
   );

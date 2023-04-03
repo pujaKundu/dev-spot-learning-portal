@@ -11,7 +11,7 @@ export const quizApi = apiSlice.injectEndpoints({
     getQuiz: builder.query({
       query: (id) => `/quizzes/${id}`,
     }),
-    
+
     addQuiz: builder.mutation({
       query: (data) => ({
         url: "/quizzes",
@@ -29,7 +29,7 @@ export const quizApi = apiSlice.injectEndpoints({
         } catch (err) {}
       },
     }),
-    
+
     editQuiz: builder.mutation({
       query: ({ quizId, data }) => ({
         url: `/quizzes/${quizId}`,
@@ -93,12 +93,9 @@ export const quizApi = apiSlice.injectEndpoints({
 
 export const {
   useGetAllQuizzesQuery,
-  useGetQuizMarksQuery,
   useGetQuizzesQuery,
   useGetQuizQuery,
-  useGetQuizMarkByStudentQuery,
   useAddQuizMutation,
- 
   useEditQuizMutation,
   useDeleteQuizMutation,
 } = quizApi;
