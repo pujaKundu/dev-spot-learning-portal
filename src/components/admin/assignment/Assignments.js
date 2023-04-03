@@ -37,10 +37,10 @@ const Assignments = () => {
               <table className="divide-y-1 text-base divide-gray-600 w-full">
                 <thead>
                   <tr>
-                    <th className="table-th">Title</th>
-                    <th className="table-th">Video Title</th>
-                    <th className="table-th">Mark</th>
-                    <th className="table-th">Action</th>
+                    <th className="table-th text-cyan-300">Title</th>
+                    <th className="table-th text-cyan-300">Video Title</th>
+                    <th className="table-th text-cyan-300">Mark</th>
+                    <th className="table-th text-cyan-300">Action</th>
                   </tr>
                 </thead>
 

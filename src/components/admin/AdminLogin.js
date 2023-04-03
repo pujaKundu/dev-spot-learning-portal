@@ -30,10 +30,10 @@ const AdminLogin = () => {
         <div>
           <img className="h-12 mx-auto" src={logo} alt="logo" />
           <h2 className="mt-6 text-center text-3xl font-extrabold text-slate-100">
-            Sign in to Admin Account
+            Sign in to <span className="text-cyan-300">Admin Account</span>
           </h2>
         </div>
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6  w-[500px]">
           <input type="hidden" name="remember" value="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -46,7 +46,7 @@ const AdminLogin = () => {
                 type="email"
                 autoComplete="email"
                 required
-                className="login-input rounded-t-md text-slate-900"
+                className="login-input bg-slate-900  text-slate-300 border-0 border-b mb-3"
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -62,7 +62,7 @@ const AdminLogin = () => {
                 type="password"
                 autoComplete="current-password"
                 required
-                className="login-input rounded-b-md text-slate-900"
+                className="login-input  bg-slate-900  text-slate-300 border-0 border-b "
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -74,9 +74,7 @@ const AdminLogin = () => {
 
           <div className="flex items-center justify-end">
             <div className="text-sm">
-              <p
-                className="font-medium text-violet-600 hover:text-violet-500"
-              >
+              <p className="font-medium text-violet-600 hover:text-violet-500">
                 Forgot your password?
               </p>
             </div>

@@ -8,7 +8,7 @@ const Dashboard = () => {
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div className="px-3 md:lg:xl:px-40  py-20 bg-opacity-10">
-            <h3 className="text-2xl text-cyan-300 text-center">
+            <h3 className="text-3xl text-cyan-300 text-center">
               Admin Dashboard
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2  gap-6 p-8">

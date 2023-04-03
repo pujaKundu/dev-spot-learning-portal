@@ -6,7 +6,7 @@ import Loader from "../../Loader";
 const Videos = () => {
   const { data: videos, isLoading, isError } = useGetVideosQuery();
   let content = null;
-  if (isLoading) content = <Loader/>;
+  if (isLoading) content = <Loader />;
 
   if (!isLoading && isError)
     content = <p className="error">There was an error occured</p>;
@@ -34,9 +34,9 @@ const Videos = () => {
               <table className="divide-y-1 text-base divide-gray-600 w-full">
                 <thead>
                   <tr>
-                    <th className="table-th">Video Title</th>
-                    <th className="table-th">Description</th>
-                    <th className="table-th">Action</th>
+                    <th className="table-th text-cyan-300">Video Title</th>
+                    <th className="table-th text-cyan-300">Description</th>
+                    <th className="table-th text-cyan-300">Action</th>
                   </tr>
                 </thead>
 

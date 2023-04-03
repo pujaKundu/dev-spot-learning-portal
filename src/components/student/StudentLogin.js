@@ -33,8 +33,8 @@ const StudentLogin = () => {
     });
   };
   return (
-    <div>
-      <section className="py-6 bg-primary h-screen grid place-items-center">
+    <>
+      <section className="py-6 bg-primary h-screen grid place-items-center ">
         <div className="mx-auto max-w-md px-5 lg:px-0">
           <div>
             <img className="h-12 mx-auto" src={logo} alt="logo" />
@@ -43,7 +43,7 @@ const StudentLogin = () => {
             </h2>
           </div>
           <form
-            className="mt-8 space-y-6"
+            className="mt-8 space-y-6 w-[500px] "
             action="#"
             method="POST"
             onSubmit={handleSubmit}
@@ -59,7 +59,7 @@ const StudentLogin = () => {
                   type="email"
                   autocomplete="email"
                   required
-                  className="login-input rounded-t-md bg-slate-900 "
+                  className="login-input  bg-slate-900 border-0 border-b mb-3"
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +75,7 @@ const StudentLogin = () => {
                   type="password"
                   autocomplete="current-password"
                   required
-                  className="login-input rounded-b-md bg-slate-900"
+                  className="login-input  bg-slate-900 border-0 border-b"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -111,7 +111,7 @@ const StudentLogin = () => {
           </form>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 
