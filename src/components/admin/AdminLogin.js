@@ -74,12 +74,11 @@ const AdminLogin = () => {
 
           <div className="flex items-center justify-end">
             <div className="text-sm">
-              <a
-                href="#"
+              <p
                 className="font-medium text-violet-600 hover:text-violet-500"
               >
                 Forgot your password?
-              </a>
+              </p>
             </div>
           </div>
 

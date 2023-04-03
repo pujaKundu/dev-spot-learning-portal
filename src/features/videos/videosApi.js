@@ -45,26 +45,7 @@ export const videosApi = apiSlice.injectEndpoints({
         } catch (error) {}
       },
     }),
-    editVideoStatus: builder.mutation({
-      query: ({ taskId, status }) => ({
-        url: `/videos/${taskId}`,
-        method: "PATCH",
-        body: { status },
-      }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          const task = await queryFulfilled;
-          dispatch(
-            apiSlice.util.updateQueryData("getvideos", undefined, (draft) => {
-              const index = draft.findIndex((t) => t?.id == task?.data?.id);
-              if (index != -1) {
-                draft[index].status = task.data.status;
-              }
-            })
-          );
-        } catch (error) {}
-      },
-    }),
+
     deleteVideo: builder.mutation({
       query: (id) => ({
         url: `/videos/${id}`,
@@ -103,6 +84,5 @@ export const {
   useGetVideoQuery,
   useAddVideoMutation,
   useEditVideoMutation,
-  useEditVideostatusMutation,
   useDeleteVideoMutation,
 } = videosApi;

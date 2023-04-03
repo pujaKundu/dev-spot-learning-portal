@@ -38,8 +38,8 @@ const StudentLogin = () => {
         <div className="mx-auto max-w-md px-5 lg:px-0">
           <div>
             <img className="h-12 mx-auto" src={logo} alt="logo" />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-slate-100">
-              Sign in to Student Account
+            <h2 className="mt-6 text-center text-3xl font-semibold text-slate-100">
+              <span className="text-cyan-300">লগইন </span>করুন
             </h2>
           </div>
           <form
@@ -48,7 +48,6 @@ const StudentLogin = () => {
             method="POST"
             onSubmit={handleSubmit}
           >
-            <input type="hidden" name="remember" value="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label for="email-address" className="sr-only">
@@ -60,7 +59,7 @@ const StudentLogin = () => {
                   type="email"
                   autocomplete="email"
                   required
-                  className="login-input rounded-t-md bg-slate-900"
+                  className="login-input rounded-t-md bg-slate-900 "
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -98,13 +97,14 @@ const StudentLogin = () => {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent 
-                text-sm font-medium rounded-md text-white
-                 bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-2 
-                 focus:ring-offset-2 focus:ring-violet-500"
                 disabled={isLoading}
+                className={`${
+                  isLoading
+                    ? "opacity-50 cursor-not-allowed"
+                    : "hover:bg-violet-700 bg-violet-600"
+                } group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500`}
               >
-                Sign in
+                {isLoading ? "Signing in..." : "Sign in"}
               </button>
             </div>
             {error !== "" && <Error message={error} />}

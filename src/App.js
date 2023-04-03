@@ -3,11 +3,13 @@ import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 import useAuthCheck from "./hooks/useAuthCheck";
 import "./App.css";
-import Portal from "./components/student/portal/Portal";
-import StudentRegistration from "./components/student/StudentRegistration";
-import StudentLogin from "./components/student/StudentLogin";
-import QuizModal from "./components/student/portal/quiz/QuizModal";
 import AdminLogin from "./components/admin/AdminLogin";
+import {
+  Portal,
+  StudentRegistration,
+  QuizModal,
+  StudentLogin,
+} from "./components/student/index";
 import {
   Dashboard,
   Assignments,
@@ -22,6 +24,7 @@ import {
   EditQuiz,
 } from "./components/admin/index";
 import Leaderboard from "./components/student/leaderboard/Leaderboard";
+import NotFound from './components/NotFound'
 
 function App() {
   const authChecked = useAuthCheck();
@@ -47,6 +50,14 @@ function App() {
             </PublicRoute>
           }
         />
+        <Route
+          path="*"
+          element={
+            <PublicRoute>
+              <NotFound />
+            </PublicRoute>
+          }
+        />
         {/* student routes */}
         <Route
           path="/portal/:videoId"
@@ -64,7 +75,7 @@ function App() {
             </PrivateRoute>
           }
         />
-      
+
         <Route
           path="/leaderboard/:id"
           element={
@@ -73,6 +84,7 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/* student routes ends */}
         {/* admin routes start */}
         <Route
           path="/admin"

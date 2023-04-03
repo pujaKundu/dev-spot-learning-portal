@@ -114,54 +114,57 @@ const Leaderboard = () => {
   top20Row = top20Data?.map((user) => <TopRank key={user.id} user={user} />);
 
   return (
-    <section className="py-6 bg-primary">
-      <h1 className="text-3xl text-center font-semibold my-5">
-        <span className="text-cyan-300">লিডার</span>বোর্ড
-      </h1>
-      <div className="mx-auto max-w-7xl px-5 lg:px-0">
-        <div>
-          <h3 className="text-lg font-bold text-slate-300">
-            লিডারবোর্ড এ আপনার অবস্থান
-          </h3>
-          <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
-            <thead>
-              <tr className="bg-slate-800">
-                <th className="table-th !text-center">র‍্যাঙ্ক</th>
-                <th className="table-th !text-center">নাম</th>
-                <th className="table-th !text-center">
-                  কুইজ থেকে প্রাপ্ত নাম্বার
-                </th>
-                <th className="table-th !text-center">
-                  এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
-                </th>
-                <th className="table-th !text-center">মোট নাম্বার</th>
-              </tr>
-            </thead>
-            {individualRow}
-          </table>
-        </div>
+    <>
+      <Navbar />
+      <section className="py-6 bg-primary">
+        <h1 className="text-3xl text-center font-semibold my-5">
+          <span className="text-cyan-300">লিডার</span>বোর্ড
+        </h1>
+        <div className="mx-auto max-w-7xl px-5 lg:px-0">
+          <div>
+            <h3 className="text-lg font-bold text-slate-300">
+              লিডারবোর্ড এ আপনার অবস্থান
+            </h3>
+            <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
+              <thead>
+                <tr className="bg-slate-800">
+                  <th className="table-th !text-center">র‍্যাঙ্ক</th>
+                  <th className="table-th !text-center">নাম</th>
+                  <th className="table-th !text-center">
+                    কুইজ থেকে প্রাপ্ত নাম্বার
+                  </th>
+                  <th className="table-th !text-center">
+                    এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
+                  </th>
+                  <th className="table-th !text-center">মোট নাম্বার</th>
+                </tr>
+              </thead>
+              {individualRow}
+            </table>
+          </div>
 
-        <div className="my-8">
-          <h3 className="text-lg font-bold text-slate-300">টপ পারফরমারস</h3>
-          <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
-            <thead>
-              <tr className="bg-slate-800">
-                <th className="table-th !text-center">র‍্যাঙ্ক</th>
-                <th className="table-th !text-center">নাম</th>
-                <th className="table-th !text-center">
-                  কুইজ থেকে প্রাপ্ত নাম্বার
-                </th>
-                <th className="table-th !text-center">
-                  এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
-                </th>
-                <th className="table-th !text-center">মোট নাম্বার</th>
-              </tr>
-            </thead>
-            {top20Row}
-          </table>
+          <div className="my-8">
+            <h3 className="text-lg font-bold text-slate-300">টপ পারফরমারস</h3>
+            <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
+              <thead>
+                <tr className="bg-slate-800">
+                  <th className="table-th !text-center">র‍্যাঙ্ক</th>
+                  <th className="table-th !text-center">নাম</th>
+                  <th className="table-th !text-center">
+                    কুইজ থেকে প্রাপ্ত নাম্বার
+                  </th>
+                  <th className="table-th !text-center">
+                    এসাইনমেন্ট থেকে প্রাপ্ত নাম্বার
+                  </th>
+                  <th className="table-th !text-center">মোট নাম্বার</th>
+                </tr>
+              </thead>
+              {top20Row}
+            </table>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

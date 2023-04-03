@@ -18,14 +18,19 @@ const Navbar = ({ user }) => {
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img src={logo} alt="logo" />
+        <Link to='/portal/1'>
+          <img src={logo} alt="logo" />
+        </Link>
         <div className="flex items-center gap-3">
-          <Link to={`/leaderboard/${user?.id}`} className="text-slate-300 hover:text-slate-100">
+          <Link
+            to={`/leaderboard/${user?.id}`}
+            className="text-slate-300 hover:text-slate-100"
+          >
             লিডারবোর্ড
           </Link>
           <h2 className="font-bold text-cyan-300 uppercase">{user?.name}</h2>
           <button
-            className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan "
+            className="flex gap-2 border-2 border-rose-800 items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-rose-800 "
             onClick={logout}
           >
             <svg
