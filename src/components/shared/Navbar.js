@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../features/auth/authSlice";
-import logo from '../../image/learningportal.svg'
+import logo from '../../image/code.png'
 import { useNavigate, Link } from "react-router-dom";
 
 const Navbar = ({ user }) => {
@@ -18,8 +18,13 @@ const Navbar = ({ user }) => {
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <Link to='/portal/1'>
-          <img src={logo} alt="logo" />
+        <Link to="/portal/1">
+          <div className="flex items-center">
+            <img src={logo} alt="logo" width={35} height={35} />
+            <p className="ml-2 text-2xl font-semibold ">
+              <span className="text-cyan-300">The Dev</span> Spot
+            </p>
+          </div>
         </Link>
         <div className="flex items-center gap-3">
           <Link

@@ -141,6 +141,7 @@ const AddQuiz = () => {
               name="option1"
               id=""
               value={isCorrect1}
+              required
               onChange={(e) => setIsCorrect1(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -164,6 +165,7 @@ const AddQuiz = () => {
               name="option2"
               id=""
               value={isCorrect2}
+              required
               onChange={(e) => setIsCorrect2(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -187,6 +189,7 @@ const AddQuiz = () => {
               name="option3"
               id=""
               value={isCorrect3}
+              required
               onChange={(e) => setIsCorrect3(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -210,6 +213,7 @@ const AddQuiz = () => {
               name="option4"
               id=""
               value={isCorrect4}
+              required
               onChange={(e) => setIsCorrect4(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}

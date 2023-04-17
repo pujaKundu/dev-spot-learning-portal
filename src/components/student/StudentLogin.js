@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../features/auth/authApi";
-import logo from "../../image/learningportal.svg";
+import logo from "../../image/code.png";
+import loginimg from "../../image/login-removebg-preview.png";
 import Error from "../ui/Error";
 
 const StudentLogin = () => {
@@ -34,16 +35,22 @@ const StudentLogin = () => {
   };
   return (
     <>
-      <section className="py-6 bg-primary h-screen grid place-items-center ">
+      <section className="py-6 bg-primary h-screen grid grid-cols-2 place-items-center">
         <div className="mx-auto max-w-md px-5 lg:px-0">
-          <div>
-            <img className="h-12 mx-auto" src={logo} alt="logo" />
-            <h2 className="mt-6 text-center text-3xl font-semibold text-slate-100">
-              <span className="text-cyan-300">লগইন </span>করুন
+          <div className="flex flex-col items-center justify-start">
+            <div className="flex items-center justify-start">
+              <img src={logo} alt="logo" width={35} height={35} />
+              <p className="ml-2 text-2xl font-semibold ">
+                <span className="text-cyan-300">The Dev</span> Spot
+              </p>
+            </div>
+            <h2 className="mt-6 text-center text-xl font-semibold text-slate-100">
+              <p className="text-violet-400">Sign in to your account</p>
             </h2>
           </div>
+
           <form
-            className="mt-8 space-y-6 w-[500px] "
+            className="mt-8 space-y-6 w-[470px]"
             action="#"
             method="POST"
             onSubmit={handleSubmit}
@@ -59,7 +66,7 @@ const StudentLogin = () => {
                   type="email"
                   autoComplete="email"
                   required
-                  className="login-input  bg-slate-900 border-0 border-b mb-3"
+                  className="login-input bg-transparent border-0 border-b mb-3 text-slate-200"
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -75,7 +82,7 @@ const StudentLogin = () => {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="login-input  bg-slate-900 border-0 border-b"
+                  className="login-input  bg-transparent border-0 border-b text-slate-200"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -94,21 +101,23 @@ const StudentLogin = () => {
               </div>
             </div>
 
-            <div>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className={`${
-                  isLoading
-                    ? "opacity-50 cursor-not-allowed"
-                    : "hover:bg-violet-700 bg-violet-600"
-                } group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500`}
-              >
-                {isLoading ? "Signing in..." : "Sign in"}
-              </button>
-            </div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className={`${
+                isLoading
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-violet-700 bg-violet-600"
+              } group relative w-full flex justify-center py-2 px-4 border border-transparent  font-semibold rounded-md text-slate-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500`}
+            >
+              {isLoading ? "Signing in..." : "Sign in"}
+            </button>
+
             {error !== "" && <Error message={error} />}
           </form>
+        </div>
+        <div>
+          <img src={loginimg} alt="" />
         </div>
       </section>
     </>
