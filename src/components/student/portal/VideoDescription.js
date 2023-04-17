@@ -81,7 +81,7 @@ const VideoDescription = ({ video, user, id }) => {
             <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM4 12c0-1.846.634-3.542 1.688-4.897l11.209 11.209A7.946 7.946 0 0112 20c-4.411 0-8-3.589-8-8zm14.312 4.897L7.103 5.688A7.948 7.948 0 0112 4c4.411 0 8 3.589 8 8a7.954 7.954 0 01-1.688 4.897z" />
           </svg>
         </span>
-        কুইজ নেই
+        No quiz
       </p>
     );
   }
@@ -92,20 +92,20 @@ const VideoDescription = ({ video, user, id }) => {
         to={`/quiz/${id}`}
         className="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan-500 hover:text-primary"
       >
-        কুইজে অংশগ্রহণ করুন
+        Quiz
       </Link>
     );
   }
 
   if (quizSubmitted || matchQuiz) {
     quizContent = (
-      <div className="px-4 py-1.5 font-bold flex space-x-2 border border-yellow-300  rounded-full">
+      <div className="px-4 py-1.5 font-semibold flex items-center space-x-2 border border-yellow-300  rounded-full cursor-not-allowed">
         <svg
           stroke="currentColor"
           fill="currentColor"
           strokeWidth="0"
           viewBox="0 0 16 16"
-          className="h-4 w-4 text-yellow-300"
+          className="h-4 w-4 text-yellow-400"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ const VideoDescription = ({ video, user, id }) => {
           <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
           <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
         </svg>
-        <span className="text-xs text-yellow-300 ">কুইজ দিয়েছেন</span>
+        <span className="text-sm text-yellow-400 ">Quiz submitted</span>
       </div>
     );
   }
@@ -134,7 +134,7 @@ const VideoDescription = ({ video, user, id }) => {
             <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM4 12c0-1.846.634-3.542 1.688-4.897l11.209 11.209A7.946 7.946 0 0112 20c-4.411 0-8-3.589-8-8zm14.312 4.897L7.103 5.688A7.948 7.948 0 0112 4c4.411 0 8 3.589 8 8a7.954 7.954 0 01-1.688 4.897z" />
           </svg>
         </span>
-        এসাইনমেন্ট নেই
+        No assignment
       </p>
     );
   }
@@ -145,14 +145,14 @@ const VideoDescription = ({ video, user, id }) => {
         className="px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm hover:bg-cyan-500 hover:text-primary"
         onClick={controlModal}
       >
-        এসাইনমেন্ট
+        Assignment
       </button>
     );
   }
 
   if (assignmentSubmitted || matchAssignment) {
     assignmentContent = (
-      <div className="px-3 py-1 font-bold flex items-center justify-center space-x-2  hover:bg-green-500 hover:text-primary hover:border-0 border border-green-500 rounded-full">
+      <div className="px-3 py-1.5 font-bold flex items-center justify-center space-x-2  border border-green-500 rounded-full cursor-not-allowed">
         <svg
           stroke="currentColor"
           fill="currentColor"
@@ -166,8 +166,8 @@ const VideoDescription = ({ video, user, id }) => {
           <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"></path>
           <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"></path>
         </svg>
-        <span className=" font-bold  text-green-600 rounded-full text-sm hover:text-primary">
-          এসাইনমেন্ট জমা হয়েছে
+        <span className=" font-bold  text-green-600 rounded-full text-sm ">
+          Assignment submitted
         </span>
       </div>
     );

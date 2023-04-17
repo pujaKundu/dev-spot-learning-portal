@@ -31,7 +31,7 @@ const Navbar = ({ user }) => {
             to={`/leaderboard/${user?.id}`}
             className="text-slate-300 hover:text-slate-100"
           >
-            লিডারবোর্ড
+           Leaderboard
           </Link>
           <h2 className="font-bold text-cyan-300 uppercase">{user?.name}</h2>
           <button

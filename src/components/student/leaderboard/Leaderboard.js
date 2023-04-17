@@ -94,7 +94,7 @@ const Leaderboard = () => {
   return (
     <div>
       <h2 className="pt-12 text-center text-3xl font-semibold text-slate-100">
-        <span className="text-cyan-300">লিডার</span>বোর্ড
+        <span className="text-cyan-300">Leader</span>board
       </h2>
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
