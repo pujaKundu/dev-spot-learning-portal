@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-
 import TopRank from './TopRank'
 import OwnRank from "./OwnRank";
 import { useGetAllAssignmentMarksQuery } from "../../../features/assignmentMark/assignmentMarkApi";
@@ -94,6 +93,9 @@ const Leaderboard = () => {
 
   return (
     <div>
+      <h2 className="pt-12 text-center text-3xl font-semibold text-slate-100">
+        <span className="text-cyan-300">লিডার</span>বোর্ড
+      </h2>
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div>
@@ -101,11 +103,15 @@ const Leaderboard = () => {
             <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
               <thead>
                 <tr>
-                  <th className="table-th !text-center">Rank</th>
-                  <th className="table-th !text-center">Name</th>
-                  <th className="table-th !text-center">Quiz Mark</th>
-                  <th className="table-th !text-center">Assignment Mark</th>
-                  <th className="table-th !text-center">Total</th>
+                  <th className="table-th !text-center text-cyan-400">Rank</th>
+                  <th className="table-th !text-center text-cyan-400">Name</th>
+                  <th className="table-th !text-center text-cyan-400">
+                    Quiz Mark
+                  </th>
+                  <th className="table-th !text-center text-cyan-400">
+                    Assignment Mark
+                  </th>
+                  <th className="table-th !text-center text-cyan-400">Total</th>
                 </tr>
               </thead>
               {individualRow}
@@ -117,11 +123,15 @@ const Leaderboard = () => {
             <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
               <thead>
                 <tr className="border-b border-slate-600/50">
-                  <th className="table-th !text-center">Rank</th>
-                  <th className="table-th !text-center">Name</th>
-                  <th className="table-th !text-center">Quiz Mark</th>
-                  <th className="table-th !text-center">Assignment Mark</th>
-                  <th className="table-th !text-center">Total</th>
+                  <th className="table-th !text-center text-cyan-400">Rank</th>
+                  <th className="table-th !text-center text-cyan-400">Name</th>
+                  <th className="table-th !text-center text-cyan-400">
+                    Quiz Mark
+                  </th>
+                  <th className="table-th !text-center text-cyan-400">
+                    Assignment Mark
+                  </th>
+                  <th className="table-th !text-center text-cyan-400">Total</th>
                 </tr>
               </thead>
               {top20Row}
