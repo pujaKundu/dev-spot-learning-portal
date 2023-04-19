@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLoggedOut } from "../../../features/auth/authSlice";
-import logo from "../../../image/learningportal.svg";
+import logo from "../../../image/code.png";
 
 const AdminNavbar = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,12 @@ const AdminNavbar = () => {
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img src={logo} alt="logo" />
+        <div className="flex items-center">
+          <img src={logo} alt="logo" width={35} height={35} />
+          <p className="ml-2 text-2xl font-semibold ">
+            <span className="text-cyan-300">The Dev</span> Spot
+          </p>
+        </div>
         <div className="flex items-center gap-3">
           <h2 className="font-bold">Admin</h2>
           <Link to="/admin/dashboard" className="font-bold">

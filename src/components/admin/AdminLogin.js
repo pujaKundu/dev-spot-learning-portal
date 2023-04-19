@@ -1,4 +1,4 @@
-import logo from "../../assets/images/lws-logo-dark.svg";
+import logo from "../../image/code.png";
 import { useState, useEffect } from "react";
 import { useAdminLoginMutation } from "../../features/auth/authApi";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,12 @@ const AdminLogin = () => {
     <section className="py-6 bg-primary h-screen grid place-items-center">
       <div className="mx-auto max-w-md px-5 lg:px-0">
         <div>
-          <img className="h-12 mx-auto" src={logo} alt="logo" />
+          <div className="flex items-center">
+            <img src={logo} alt="logo" width={35} height={35} />
+            <p className="ml-2 text-2xl font-semibold ">
+              <span className="text-cyan-300">The Dev</span> Spot
+            </p>
+          </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-slate-100">
             Sign in to <span className="text-cyan-300">Admin Account</span>
           </h2>
