@@ -1,9 +1,10 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import TopRank from './TopRank'
 import OwnRank from "./OwnRank";
 import { useGetAllAssignmentMarksQuery } from "../../../features/assignmentMark/assignmentMarkApi";
 import { useGetQuizMarksQuery } from "../../../features/quizMark/quizMarkApi";
+import logo from '../../../image/code.png'
 
 const Leaderboard = () => {
   const { id:student_id } = useParams();
@@ -92,14 +93,22 @@ const Leaderboard = () => {
   top20Row = top20Data?.map((user) => <TopRank key={user.id} user={user} />);
 
   return (
-    <div>
+    <>
+      <Link to="/portal/1">
+        <div className="flex items-center pt-3 pl-5">
+          <img src={logo} alt="logo" width={30} height={30} />
+          <p className="ml-2 text-xl font-semibold ">
+            <span className="text-cyan-300">The Dev</span> Spot
+          </p>
+        </div>
+      </Link>
       <h2 className="pt-12 text-center text-3xl font-semibold text-slate-100">
         <span className="text-cyan-300">Leader</span>board
       </h2>
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div>
-            <h3 className="text-lg font-bold">Your Position in Leaderboard</h3>
+            <h3 className="text-lg font-bold">Your Rank</h3>
             <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
               <thead>
                 <tr>
@@ -119,7 +128,7 @@ const Leaderboard = () => {
           </div>
 
           <div className="my-8">
-            <h3 className="text-lg font-bold">Top 20 Result</h3>
+            <h3 className="text-lg font-bold">Top Performers</h3>
             <table className="text-base w-full border border-slate-600/50 rounded-md my-4">
               <thead>
                 <tr className="border-b border-slate-600/50">
@@ -139,7 +148,7 @@ const Leaderboard = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

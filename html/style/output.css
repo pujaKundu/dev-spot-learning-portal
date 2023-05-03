@@ -1222,10 +1222,7 @@ body {
   line-height: 1rem;
 }
 
-.assignment-status li:first-of-type {
-  --tw-border-opacity: 1;
-  border-color: rgb(79 70 229 / var(--tw-border-opacity));
-}
+
 
 .assignment-status li:first-of-type span {
   --tw-bg-opacity: 1;

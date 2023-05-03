@@ -20,8 +20,8 @@ const Navbar = ({ user }) => {
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
         <Link to="/portal/1">
           <div className="flex items-center">
-            <img src={logo} alt="logo" width={35} height={35} />
-            <p className="ml-2 text-2xl font-semibold ">
+            <img src={logo} alt="logo" width={30} height={30} />
+            <p className="ml-2 text-xl font-semibold ">
               <span className="text-cyan-300">The Dev</span> Spot
             </p>
           </div>
