@@ -10,7 +10,7 @@ const AdminNavbar = () => {
   const logout = () => {
     dispatch(userLoggedOut());
     localStorage.clear();
-    navigate("/admin");
+    navigate("/");
   };
 
   return (

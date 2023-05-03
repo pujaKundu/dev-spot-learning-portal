@@ -1,4 +1,5 @@
 import React from "react";
+import crown from '../../../image/king.png'
 
 const TopRank = ({ user }) => {
   const { rank, totalAssignmentMark, totalQuizMark, total, name } =
@@ -8,7 +9,7 @@ const TopRank = ({ user }) => {
     <tbody>
       <tr className="border border-slate-700 hover:bg-slate-900">
         <td className="table-td text-center font-bold border border-slate-800">
-          {rank}
+          {rank==1 ? <img src={crown} alt="" width={20} height={20} />:rank}
         </td>
         <td className="table-td text-left font-bold uppercase border border-slate-800">
           {name}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddQuizMutation } from "../../../features/quiz/quizApi";
 import { useGetVideosQuery } from "../../../features/videos/videosApi";
+import swal from "sweetalert";
 
 const AddQuiz = () => {
   const navigate = useNavigate();
@@ -66,11 +67,12 @@ const AddQuiz = () => {
     setIsCorrect2(false);
     setIsCorrect3(false);
     setIsCorrect4(false);
-    alert("Quiz Added Successfully");
+    swal("Good job!", "Quiz Added Successfully!", "success");
     navigate("/admin/quiz");
   };
   return (
     <>
+      
       <div className="w-full max-w-screen-lg mx-auto">
         <h3 className="text-cyan-500 text-3xl py-10  font-bold">
           Add New Quiz
@@ -141,7 +143,7 @@ const AddQuiz = () => {
               name="option1"
               id=""
               value={isCorrect1}
-              required
+              
               onChange={(e) => setIsCorrect1(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -165,7 +167,7 @@ const AddQuiz = () => {
               name="option2"
               id=""
               value={isCorrect2}
-              required
+              
               onChange={(e) => setIsCorrect2(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -189,7 +191,7 @@ const AddQuiz = () => {
               name="option3"
               id=""
               value={isCorrect3}
-              required
+              
               onChange={(e) => setIsCorrect3(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -213,7 +215,7 @@ const AddQuiz = () => {
               name="option4"
               id=""
               value={isCorrect4}
-              required
+              
               onChange={(e) => setIsCorrect4(e.target.checked)}
               className="bg-transparent mr-2 rounded cursor-pointer"
             />{" "}
@@ -228,11 +230,7 @@ const AddQuiz = () => {
               Save
             </button>
           </div>
-          {/* {isSuccess && (
-          <p className="text-green-500 border border-green-600 rounded-full text-center w-[250px] my-5 py-2">
-            Video Added Successfully
-          </p>
-        )} */}
+          
         </form>
       </div>
     </>

@@ -835,7 +835,7 @@ video {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(8 14 27 / var(--tw-bg-opacity));
+  background-color: #0D0D0D;
 }
 
 .bg-red-600 {
@@ -1074,6 +1074,7 @@ video {
 
 body {
   --tw-bg-opacity: 1;
+  
   background-color: rgb(8 14 27 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));

@@ -25,6 +25,10 @@ const Videos = () => {
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-full px-5 lg:px-20">
           <div className="px-3 py-20 bg-opacity-10">
+            {" "}
+            <h1 className="text-3xl font-semibold text-center">
+              <span className="text-cyan-300">Manage</span> Videos
+            </h1>
             <div className="w-full flex">
               <Link to="/admin/videos/add" className="btn ml-auto">
                 Add Video
@@ -34,13 +38,13 @@ const Videos = () => {
               <table className="divide-y-1 text-base divide-gray-600 w-full">
                 <thead>
                   <tr>
-                    <th className="table-th text-cyan-300">Video Title</th>
-                    <th className="table-th text-cyan-300">Description</th>
-                    <th className="table-th text-cyan-300">Action</th>
+                    <th className="table-th text-cyan-300 ">Video Title</th>
+                    <th className="table-th text-cyan-300 ">Description</th>
+                    <th className="table-th text-cyan-300 ">Action</th>
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-600/50">
+                <tbody className="divide-y divide-slate-600/50 py-8">
                   {content}
                 </tbody>
               </table>

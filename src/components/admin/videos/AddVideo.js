@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAddVideoMutation } from "../../../features/videos/videosApi";
+import swal from "sweetalert";
 
 const AddVideo = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const AddVideo = () => {
     setUrl("");
     setViews("");
     setDuration("");
-    alert("Video Added Successfully");
+    swal("Good job!", "Video Added Successfully!", "success");
     navigate("/admin/videos");
   };
 

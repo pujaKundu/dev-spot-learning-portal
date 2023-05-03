@@ -30,6 +30,10 @@ const Assignments = () => {
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-full px-5 lg:px-20">
           <div className="px-3 py-20 bg-opacity-10">
+            {" "}
+            <h1 className="text-3xl font-semibold text-center">
+              <span className="text-cyan-300">Manage</span> Assignments
+            </h1>
             <Link to="/admin/assignment/add" className="w-full flex">
               <button className="btn ml-auto">Add Assignment</button>
             </Link>

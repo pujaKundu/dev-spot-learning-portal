@@ -16,7 +16,7 @@ const AssignmentMark = () => {
     content = <p className="error">There was an error occured</p>;
 
   if (!isLoading && !isError && assignmentMarks?.length === 0) {
-    content = <p>No video found!</p>;
+    content = <p>No mark found!</p>;
   }
 
   if (!isLoading && !isError && assignmentMarks?.length > 0) {
@@ -32,6 +32,9 @@ const AssignmentMark = () => {
       <AdminNavbar />
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-full px-5 lg:px-20">
+          <h1 className="text-3xl font-semibold text-center">
+            <span className="text-cyan-300">Manage Assignment</span> Marks
+          </h1>
           <div className="px-3 py-20 bg-opacity-10">
             <AssignmentStatus assignmentMarks={assignmentMarks} />
             <div className="overflow-x-auto mt-4">
