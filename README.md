@@ -14,7 +14,7 @@
     - Submit quizzes
     - See own rank and top twenty ranks in leaderboard
  - Admin functionalities
-    - Admin login: credentials - email: lws@learnwithsumit.com, password: lws@123456
+    - Admin login: credentials - email: admin@adminlp.com, password: admin
     - Add,edit,delete video tutorials
     - Add,edit,delete assignments for videos
     - Add,edit,delete quizzes for videos
