@@ -53,7 +53,7 @@ const AssignmentModal = ({
             <input type="hidden" name="remember" value="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <p className="my-2">গিটহাব রিপোসিটরি লিংক :</p>
+                <p className="my-2">GitHub repository link :</p>
                 <label htmlhtmlFor="to" className="sr-only">
                   GitHub Repository
                 </label>
@@ -63,7 +63,7 @@ const AssignmentModal = ({
                   type="text"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-slate-500 bg-slate-900 text-slate-100 rounded-t-md focus:outline-none focus:ring-violet-500 focus:border-violet-500 focus:z-10 sm:text-sm"
-                  placeholder="গিটহাব রিপোসিটরি লিংক যা আপনি গিটহাব ক্লাসরুম থেকে পেয়েছেন"
+                  placeholder="Add your assignment repository link here"
                   onChange={(e) => setRepo(e.target.value)}
                 />
               </div>

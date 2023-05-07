@@ -200,7 +200,7 @@ const VideoDescription = ({ video, user, id }) => {
     );
   }
   return (
-    <>
+    <div>
       {content}
       <AssignmentModal
         open={opened}
@@ -210,7 +210,7 @@ const VideoDescription = ({ video, user, id }) => {
         setIsAssignmentSubmitted={setIsAssignmentSubmitted}
         setSubmittedVideo={setSubmittedVideo}
       />
-    </>
+    </div>
   );
 };
 

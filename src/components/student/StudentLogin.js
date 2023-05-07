@@ -4,6 +4,7 @@ import { useLoginMutation } from "../../features/auth/authApi";
 import logo from "../../image/code.png";
 import loginimg from "../../image/login-removebg-preview.png";
 import Error from "../ui/Error";
+import { Oval } from "react-loader-spinner";
 
 const StudentLogin = () => {
   const [email, setEmail] = useState("");
@@ -34,8 +35,17 @@ const StudentLogin = () => {
     });
   };
   return (
-    <>
-      <section className="py-6 bg-primary h-screen grid grid-cols-2 place-items-center">
+    <div
+      style={{
+        backgroundColor: "#000000",
+        opacity: "1",
+        backgroundImage:
+          "linear-gradient(#090909 2px, transparent 2px), linear-gradient(90deg, #090909 2px, transparent 2px), linear-gradient(#090909 1px, transparent 1px), linear-gradient(90deg, #090909 1px, #000000 1px)",
+        backgroundSize: " 50px 50px, 50px 50px, 10px 10px, 10px 10px",
+        backgroundPosition: "-2px -2px, -2px -2px, -1px -1px, -1px -1px",
+      }}
+    >
+      <section className="py-6  h-screen grid grid-cols-2 place-items-center">
         <div className="mx-auto max-w-md px-5 lg:px-0">
           <div className="flex flex-col items-center justify-start">
             <div className="flex items-center justify-start">
@@ -110,7 +120,25 @@ const StudentLogin = () => {
                   : "hover:bg-violet-700 bg-violet-600"
               } group relative w-full flex justify-center py-2 px-4 border border-transparent  font-semibold rounded-md text-slate-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500`}
             >
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? (
+                <p className="flex justify-center">
+                  <Oval
+                    height={20}
+                    width={20}
+                    color="violet"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                    ariaLabel="oval-loading"
+                    secondaryColor="violet"
+                    strokeWidth={3}
+                    strokeWidthSecondary={2}
+                  />
+                  <span className="ml-2 text-violet-500">Signing in</span>
+                </p>
+              ) : (
+                "Sign in"
+              )}
             </button>
 
             {error !== "" && <Error message={error} />}
@@ -120,7 +148,7 @@ const StudentLogin = () => {
           <img src={loginimg} alt="" />
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

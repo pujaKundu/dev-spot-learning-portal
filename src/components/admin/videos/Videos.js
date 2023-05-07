@@ -20,9 +20,19 @@ const Videos = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#000000",
+        opacity: "1",
+        backgroundImage:
+          "linear-gradient(#090909 2px, transparent 2px), linear-gradient(90deg, #090909 2px, transparent 2px), linear-gradient(#090909 1px, transparent 1px), linear-gradient(90deg, #090909 1px, #000000 1px)",
+        backgroundSize: " 50px 50px, 50px 50px, 10px 10px, 10px 10px",
+        backgroundPosition: "-2px -2px, -2px -2px, -1px -1px, -1px -1px",
+        height:'100vh'
+      }}
+    >
       <AdminNavbar />
-      <section className="py-6 bg-primary">
+      <section className="py-6">
         <div className="mx-auto max-w-full px-5 lg:px-20">
           <div className="px-3 py-20 bg-opacity-10">
             {" "}

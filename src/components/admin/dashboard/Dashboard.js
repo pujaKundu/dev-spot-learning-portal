@@ -3,9 +3,18 @@ import AdminNavbar from "./AdminNavbar";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#000000",
+        opacity: "1",
+        backgroundImage:
+          "linear-gradient(#090909 2px, transparent 2px), linear-gradient(90deg, #090909 2px, transparent 2px), linear-gradient(#090909 1px, transparent 1px), linear-gradient(90deg, #090909 1px, #000000 1px)",
+        backgroundSize: " 50px 50px, 50px 50px, 10px 10px, 10px 10px",
+        backgroundPosition: "-2px -2px, -2px -2px, -1px -1px, -1px -1px",
+      }}
+    >
       <AdminNavbar />
-      <section className="py-6 bg-primary">
+      <section className="py-6">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div className="px-3 md:lg:xl:px-40  py-20 bg-opacity-10">
             <h3 className="text-4xl font-bold text-cyan-300 text-center">
@@ -14,7 +23,7 @@ const Dashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8">
               <Link
                 to="/admin/videos"
-                className="dashboard-item-card hover:border-cyan-500"
+                className="bg-[#0d0d0d] flex flex-col items-center justify-center rounded hover:scale-105 ease-in-out hover:border hover:border-zinc-800 h-44"
               >
                 <svg
                   fill="none"
@@ -34,7 +43,7 @@ const Dashboard = () => {
 
               <Link
                 to="/admin/assignment"
-                className="dashboard-item-card hover:border-cyan-500"
+                className="bg-[#0d0d0d] flex flex-col items-center justify-center rounded hover:scale-105 ease-in-out hover:border hover:border-zinc-800 h-44"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +65,7 @@ const Dashboard = () => {
 
               <Link
                 to="/admin/quiz"
-                className="dashboard-item-card hover:border-cyan-500"
+                className="bg-[#0d0d0d] flex flex-col items-center justify-center rounded hover:scale-105 ease-in-out hover:border hover:border-zinc-800 h-44"
               >
                 <svg
                   fill="none"
@@ -76,7 +85,7 @@ const Dashboard = () => {
 
               <Link
                 to="/admin/assignmentMark"
-                className="dashboard-item-card hover:border-cyan-500"
+                className="bg-[#0d0d0d] flex flex-col items-center justify-center rounded hover:scale-105 ease-in-out hover:border hover:border-zinc-800 h-44"
               >
                 <svg
                   viewBox="0 0 24 24"

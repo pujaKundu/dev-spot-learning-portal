@@ -49,20 +49,35 @@ const EditVideo = () => {
     setDuration("");
     // success alert and navigate to videos
 
-    alert("Video Edited Successfully");
-    navigate("/admin/videos");
+    if (isSuccess) {
+      alert("Video Edited Successfully");
+      navigate("/admin/videos");
+    }
+    if (!isSuccess) {
+      alert("There was an error!Try again!");
+    }
   };
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: "#000000",
+        opacity: "1",
+        backgroundImage:
+          "linear-gradient(#090909 2px, transparent 2px), linear-gradient(90deg, #090909 2px, transparent 2px), linear-gradient(#090909 1px, transparent 1px), linear-gradient(90deg, #090909 1px, #000000 1px)",
+        backgroundSize: " 50px 50px, 50px 50px, 10px 10px, 10px 10px",
+        backgroundPosition: "-2px -2px, -2px -2px, -1px -1px, -1px -1px",
+        height: "100vh"
+      }}
+    >
       <AdminNavbar />
       <div className="w-full max-w-screen-lg mx-auto">
-        <h3 className="text-cyan-500 text-3xl py-10  font-bold">
+        <h3 className="text-cyan-500 text-3xl pt-10 font-bold">
           Edit New Video
         </h3>
         <form
           onSubmit={handleSubmit}
-          className="w-full bg-slate-900 shadow-md rounded px-8 pt-6 pb-8 my-4"
+          className="w-full bg-[#0d0d0d] shadow-md rounded px-8 my-6 mb-8 "
         >
           <div className="mb-4">
             <label
@@ -148,20 +163,7 @@ const EditVideo = () => {
               onChange={(e) => setDuration(e.target.value)}
             />
           </div>
-          {/* <div className="mb-4">
-          <label className="block text-slate-300 font-bold mb-2" htmlFor="duration">
-            Created At
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-100 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
-            id="duration"
-            type="date"
-            placeholder="Enter duration"
-            required
-            defaultValue={initialCreatedAt}
-            onChange={(e) => setCreatedAt(e.target.value)}
-          />
-        </div> */}
+         
 
           <div className="flex items-center justify-between">
             <button
@@ -173,7 +175,7 @@ const EditVideo = () => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

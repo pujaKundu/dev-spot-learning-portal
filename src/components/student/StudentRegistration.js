@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../../features/auth/authApi";
 import logo from "../../image/code.png";
 import Error from "../ui/Error";
@@ -46,7 +46,17 @@ const StudentRegistration = () => {
   };
 
   return (
-    <section className="py-6 bg-primary h-screen grid place-items-center">
+    <section
+      className="py-6  h-screen grid place-items-center"
+      style={{
+        backgroundColor: "#000000",
+        opacity: "1",
+        backgroundImage:
+          "linear-gradient(#090909 2px, transparent 2px), linear-gradient(90deg, #090909 2px, transparent 2px), linear-gradient(#090909 1px, transparent 1px), linear-gradient(90deg, #090909 1px, #000000 1px)",
+        backgroundSize: " 50px 50px, 50px 50px, 10px 10px, 10px 10px",
+        backgroundPosition: "-2px -2px, -2px -2px, -1px -1px, -1px -1px",
+      }}
+    >
       <div className="mx-auto max-w-md px-5 lg:px-0">
         <div className="flex flex-col items-center justify-start">
           <div className="flex items-center justify-start">
@@ -60,7 +70,7 @@ const StudentRegistration = () => {
           </h2>
         </div>
         <form
-          className="mt-8 space-y-6 w-[470px]"
+          className="mt-8 space-y-6 w-[470px] mb-4"
           action="#"
           method="POST"
           onSubmit={handleSubmit}
@@ -145,6 +155,9 @@ const StudentRegistration = () => {
           </div>
           {error !== "" && <Error message={error} />}
         </form>
+        <Link className="text-indigo-500 font-semibold hover:text-indigo-600" to="/">
+          <span>Login to your account</span>
+        </Link>
       </div>
     </section>
   );
